@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetId === 'characters') {
                 const activeCharDisplay = document.getElementById('active-character-display');
                 const storySectionEl = document.getElementById('story-section');
-                // HIDE OVERLAY when in characters grid? No, user said "cuando se le da click al personaje... sigue tiling".
-                // So in grid it's fine.
+
+                // Hide TILIN OVERLAY when in characters to prevent overlap with Barabajan
                 const tilinOverlay = document.getElementById('tilin-overlay');
-                if (tilinOverlay) tilinOverlay.style.display = 'block';
+                if (tilinOverlay) tilinOverlay.style.display = 'none';
 
                 if (activeCharDisplay) {
                     activeCharDisplay.classList.remove('active-character-visible');
