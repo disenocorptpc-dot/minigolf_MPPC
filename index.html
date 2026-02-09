@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minigolf Pirata - Punta Cana</title>
+    <link rel="icon" href="assets/images/favicon.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Pirata+One&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Meta Tags for Link Preview -->
+    <meta property="og:title" content="Minigolf Punta Cana - El Botín de los 100 Años">
+    <meta property="og:description"
+        content="Descubre la leyenda de Barbaján y Barbecue, y encuentra el tesoro escondido en el mejor minigolf de Punta Cana.">
+    <meta property="og:image" content="assets/images/link_preview.webp">
+    <meta property="og:url" content="https://minigolfpuntacana.com">
+    <meta property="og:type" content="website">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Audio Player -->
+        <audio id="bg-music" loop>
+            <source src="assets/audio/background.mp3" type="audio/mpeg">
+        </audio>
+        <div class="audio-controls">
+            <button id="music-toggle">🔇</button>
+        </div>
+
+
+        <!-- Navigation Header -->
+        <header class="main-header">
+            <div class="nav-ribbon" data-target="home">Home</div>
+            <div class="nav-ribbon" data-target="legend">La Leyenda</div>
+            <div class="logo-container">
+                <img src="assets/images/logo.webp" alt="Minigolf Punta Cana" class="main-logo">
+            </div>
+            <div class="nav-ribbon" data-target="treasure">Tesoros</div>
+            <div class="nav-ribbon" data-target="characters">Personajes</div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Tiling Overlay -->
+            <div id="tilin-overlay" class="character-overlay">
+                <img src="assets/images/tilin.webp" alt="Tilin el Loro">
+            </div>
+
+            <!-- Scrollable Story Section -->
+            <section id="story-section" class="active-section">
+                <div class="story-container">
+                    <div class="story-content" id="dynamic-story-content">
+                        <!-- Content injected via JS -->
+                        <h2>El Botín de los 100 Años</h2>
+                        <h3>La Promesa</h3>
+                        <p>El Botín de los Cien Años es real... Dos hermanos, Barbaján y Barbecue, juraron encontrar el
+                            tesoro más grande jamás visto. Pero el mar guarda secretos oscuros.</p>
+                        <h3>Los Peligros del Mar</h3>
+                        <p>Tilin nos advirtió: "La belleza es como un amanecer, pero lleva a la perdición." Sirenas
+                            encantadoras y el temible Kraken aguardaban en las profundidades, custodiando el camino.</p>
+                        <h3>El Naufragio</h3>
+                        <p>Llegada al destino: Aquí está su barco y el tesoro está dentro. El viaje ha terminado.</p>
+                        <p>Tras una feroz batalla contra el Kraken, el barco sucumbió. Barbaján no pudo sobrevivir, y
+                            Barbecue, en su espera eterna, también falleció.</p>
+                        <p>Inspirado por su promesa, he encontrado en ti un nuevo compañero digno de llevarse este
+                            tesoro: el valor de la amistad.</p>
+                        <h3>Epílogo</h3>
+                        <p>El Botín de los Cien Años es real, sí... Pero también es la fuerza que unió a dos hermanos
+                            hasta el último aliento. Hoy, por fin, se cumple la promesa.</p>
+                        <p>Y si has llegado hasta aquí, quizás tú también lo entiendas: la verdadera riqueza es la
+                            amistad que ni el tiempo ni la muerte pueden borrar.</p>
+                        <div style="text-align:center; margin-top:30px; font-size: 2rem;">☠️ 🦜 ☠️</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Character Section (Hidden by default) -->
+            <section id="characters-section" class="hidden-section">
+                <h2>La Tripulación</h2>
+                <div class="character-grid">
+                    <!-- Cards injected via JS -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Treasure Chest Footer -->
+        <footer class="treasure-chest">
+            <div class="chest-content">
+                <div class="resource-item">
+                    <span>Mapa del Tesoro</span>
+                    <button>Descargar</button>
+                </div>
+                <!-- Banner Image Added Here -->
+                <div class="banner-wrapper">
+                    <!-- The banner image takes up most space, buttons float over or around it -->
+                </div>
+                <div class="resource-item">
+                    <span>Puzzles</span>
+                    <button>Descargar</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
