@@ -37,12 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
             let targetSection = document.getElementById(targetId + '-section');
 
 
+
             // Fallback for simple mapping
             if (!targetSection) {
                 if (targetId === 'home' || targetId === 'legend') {
                     targetSection = document.getElementById('story-section');
                     // Ensure story is reset to intro when clicking home/legend
                     if (window.resetStory) window.resetStory();
+
+                    // SHOW OVERLAY when going home
+                    const tilinOverlay = document.getElementById('tilin-overlay');
+                    if (tilinOverlay) tilinOverlay.style.display = 'block';
                 }
                 else if (targetId === 'characters') targetSection = document.getElementById('characters-section');
                 else targetSection = document.getElementById('story-section'); // Default
@@ -52,6 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetId === 'characters') {
                 const activeCharDisplay = document.getElementById('active-character-display');
                 const storySectionEl = document.getElementById('story-section');
+                // HIDE OVERLAY when in characters grid? No, user said "cuando se le da click al personaje... sigue tiling".
+                // So in grid it's fine.
+                const tilinOverlay = document.getElementById('tilin-overlay');
+                if (tilinOverlay) tilinOverlay.style.display = 'block';
+
                 if (activeCharDisplay) {
                     activeCharDisplay.classList.remove('active-character-visible');
                     activeCharDisplay.classList.add('hidden-character-display');
@@ -150,11 +160,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.showCharacterStory = (char) => {
         const storyContent = document.getElementById('dynamic-story-content');
         const storySection = document.getElementById('story-section');
+
         const activeCharDisplay = document.getElementById('active-character-display');
         const activeCharImg = document.getElementById('active-char-img');
-        const sections = document.querySelectorAll('.content-area section');
+        const sections = document.querySelectorAll('main > section');
 
         if (storyContent && storySection) {
+            // HIDE TILIN OVERLAY
+            const tilinOverlay = document.getElementById('tilin-overlay');
+            if (tilinOverlay) tilinOverlay.style.display = 'none';
+
             // Update content logic for Detail View
             storyContent.innerHTML = char.story + '<button onclick="resetStory()" style="display:block; margin: 30px auto; padding: 10px 20px; cursor:pointer; background:var(--color-wax-red); color:white; border:none; border-radius:4px; font-size:1.2rem;">Volver</button>';
 
@@ -180,9 +195,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.resetStory = () => {
         // Reset Logic
         const storyContent = document.getElementById('dynamic-story-content');
+
         const activeCharDisplay = document.getElementById('active-character-display');
         const storySection = document.getElementById('story-section');
-        const sections = document.querySelectorAll('.content-area section');
+        const sections = document.querySelectorAll('main > section');
+
+        // SHOW TILIN OVERLAY
+        const tilinOverlay = document.getElementById('tilin-overlay');
+        if (tilinOverlay) tilinOverlay.style.display = 'block';
 
         // Hide Character Image
         if (activeCharDisplay) {

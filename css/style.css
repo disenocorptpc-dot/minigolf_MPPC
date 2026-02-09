@@ -54,8 +54,10 @@ body {
 
 .nav-ribbon {
     pointer-events: auto;
-    width: 220px;
-    height: 100px;
+    width: 260px;
+    /* Increased by ~20% */
+    height: 120px;
+    /* Increased by ~20% */
     background-image: url('../assets/images/ribbon.webp');
     background-size: contain;
     background-repeat: no-repeat;
@@ -65,13 +67,14 @@ body {
     align-items: center;
     color: var(--color-gold);
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: 1.7rem;
+    /* Increased font slightly */
     text-align: center;
     cursor: pointer;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     transition: transform 0.2s;
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 
 .nav-ribbon:hover {
@@ -194,13 +197,14 @@ body {
     display: inline-block;
 }
 
+
 .story-content p {
     font-size: 1.5rem;
-    /* Larger & Bold */
-    font-weight: 600;
+    font-weight: 700;
     /* Bolder */
     line-height: 1.8;
     margin-bottom: 20px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container {
@@ -281,8 +285,9 @@ body {
 }
 
 .character-overlay img {
-    height: 45vh;
-    max-height: 500px;
+    height: 55vh;
+    max-height: 600px;
+    /* Increased Max */
     width: auto;
     filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.6));
     transition: transform 0.3s ease-in-out;
