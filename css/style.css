@@ -127,43 +127,52 @@ body {
 
 
 
+
 .story-container {
     width: 90%;
     max-width: 900px;
     height: 80vh;
-    /* Responsive height */
     max-height: 750px;
     position: relative;
     background-image: url('../assets/images/back_historia.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    /* Reverting top padding, increasing bottom padding to prevent scroll collision */
-    padding: 100px 150px 160px 150px;
+    /* Reduced top padding to origin, keeping sides */
+    padding: 100px 150px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     color: var(--color-ink);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-gold) var(--color-wood);
+    /* REMOVED SCROLL FROM CONTAINER */
+    overflow-y: hidden;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
+/* NEW SCROLL WRAPPER STYLE */
+.story-scroll-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold) var(--color-wood);
+    /* Padding to keep text away from scrollbar and visually centered in "page" */
+    padding-right: 15px;
+}
 
-
-.story-container::-webkit-scrollbar {
+/* Update scrollbar selectors to target the wrapper now */
+.story-scroll-wrapper::-webkit-scrollbar {
     width: 12px;
 }
 
-.story-container::-webkit-scrollbar-track {
+.story-scroll-wrapper::-webkit-scrollbar-track {
     background: rgba(62, 39, 35, 0.3);
     border-radius: 6px;
-    margin: 80px 0;
+    /* margin: 80px 0; Removed margin as it might behave differently on inner div */
 }
 
-.story-container::-webkit-scrollbar-thumb {
+.story-scroll-wrapper::-webkit-scrollbar-thumb {
     background-color: var(--color-gold);
     border-radius: 6px;
     border: 2px solid var(--color-wood);
