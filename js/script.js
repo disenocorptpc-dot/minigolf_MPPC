@@ -35,12 +35,31 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show target section
             let targetSection = document.getElementById(targetId + '-section');
 
+
             // Fallback for simple mapping
             if (!targetSection) {
-                if (targetId === 'home' || targetId === 'legend') targetSection = document.getElementById('story-section');
+                if (targetId === 'home' || targetId === 'legend') {
+                    targetSection = document.getElementById('story-section');
+                    // Ensure story is reset to intro when clicking home/legend
+                    if (window.resetStory) window.resetStory();
+                }
                 else if (targetId === 'characters') targetSection = document.getElementById('characters-section');
                 else targetSection = document.getElementById('story-section'); // Default
             }
+
+            // Hide special active character elements if navigating away from story (or to characters list)
+            if (targetId === 'characters') {
+                const activeCharDisplay = document.getElementById('active-character-display');
+                const storySectionEl = document.getElementById('story-section');
+                if (activeCharDisplay) {
+                    activeCharDisplay.classList.remove('active-character-visible');
+                    activeCharDisplay.classList.add('hidden-character-display');
+                }
+                if (storySectionEl) {
+                    storySectionEl.classList.remove('with-character');
+                }
+            }
+
 
             if (targetSection) {
                 targetSection.classList.remove('hidden-section');
@@ -64,12 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Barbaján",
             role: "El Guerrero",
             image: "assets/images/barbajan.webp",
+            // Reduced story text for fitting better
             story: `
                 <h3>Barbaján: La Espada del Destino</h3>
-                <p>Barbaján fue el hermano mayor, conocido en los siete mares por su fuerza descomunal y su lealtad inquebrantable.</p>
-                <p>Desde niño juró proteger a Barbecue. Durante su última travesía, fue él quien se lanzó primero contra el Kraken, blandiendo su espada *Curo*, para dar tiempo a su tripulación de escapar.</p>
-                <p>"¡Corran! Yo lo detendré", fueron sus últimas palabras antes de que las olas se lo tragaran.</p>
-                <p>Se dice que su espíritu aún vaga por las costas, asegurándose de que ningún otro hermano sea separado por el mar.</p>
+                <p>El hermano mayor, legendario por su fuerza y lealtad. Juró proteger a Barbecue desde niño.</p>
+                <p>En su última batalla, se enfrentó solo al Kraken con su espada *Curo*, sacrificándose para salvar a su tripulación.</p>
+                <p>Su espíritu ahora protege estas costas.</p>
             `
         },
         {
@@ -79,9 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "assets/images/barbecue.webp",
             story: `
                 <h3>Barbecue: La Espera Eterna</h3>
-                <p>Barbecue, el estratega, nunca perdonó al mar por llevarse a Barbaján.</p>
-                <p>Construyó un refugio en el arrecife donde naufragaron, esperando día y noche el regreso de su hermano.</p>
-                <p>Con el tiempo, su piel se volvió como la corteza de los árboles y sus ojos como brasas. Juró proteger el tesoro que ambos habían encontrado, "El Botín de los 100 años", hasta que Barbaján regresara a reclamarlo junto a él.</p>
+                <p>El estratega que nunca perdonó al mar. Construyó un refugio en el arrecife esperando a su hermano.</p>
+                <p>Con el tiempo, se convirtió en parte de la isla, custodiando el "Botín de los 100 años" hasta el regreso de Barbaján.</p>
             `
         },
         {
@@ -91,9 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "assets/images/tilin.webp",
             story: `
                 <h3>Tilín: El Ojo que Todo lo Ve</h3>
-                <p>Tilín no es un loro común. Se dice que tiene más de 100 años y que fue el consejero de los mismísimos fundadores de Punta Cana.</p>
-                <p>Con sus plumas brillantes y su pico afilado, advierte a los viajeros: "No todo lo que brilla es oro".</p>
-                <p>Fue Tilín quien intentó detener a los hermanos antes de entrar a la cueva del Kraken, pero la ambición pudo más que la sabiduría.</p>
+                <p>Más de 100 años de sabiduría plumífera. Consejero de los fundadores y guardián de secretos.</p>
+                <p>Advirtió sobre el Kraken, pero la ambición humana es sorda. Hoy vigila que la historia no se repita con nuevos aventureros.</p>
             `
         },
         {
@@ -103,9 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "assets/images/jacky.webp",
             story: `
                 <h3>Jacky: La Alegría del Caribe</h3>
-                <p>Poco se habla de Jacky en los libros de historia, pero los lugareños saben la verdad.</p>
-                <p>Mientras todos buscaban oro, Jacky buscaba la canción perfecta. Se unió a la tripulación no por riqueza, sino por la aventura.</p>
-                <p>Su risa era tan contagiosa que incluso las sirenas se detenían a escucharla. Hoy, su espíritu vive en cada fiesta y celebración del minigolf.</p>
+                <p>Mientras otros buscaban oro, ella buscaba la canción perfecta. Su risa encantaba hasta a las sirenas.</p>
+                <p>No busca tesoros, sino la próxima gran historia. ¿Serás tú parte de ella?</p>
             `
         }
     ];
@@ -116,14 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
         characterData.forEach(char => {
             const card = document.createElement('div');
             card.classList.add('character-card');
-            // Adding onclick event to show story
+            // Adding onclick to ALL elements inside card
             card.onclick = () => showCharacterStory(char);
 
             card.innerHTML = `
-                <img src="${char.image}" alt="${char.name}" style="width:100%; border-radius: 5px; margin-bottom: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
-                <h3 style="font-family: var(--font-heading); color: var(--color-ink); margin: 10px 0;">${char.name}</h3>
-                <p style="font-style: italic; color: var(--color-wax-red);">${char.role}</p>
-                <button style="margin-top:10px; padding: 5px 10px; cursor:pointer;">Ver Historia</button>
+                <img src="${char.image}" alt="${char.name}">
+                <h3>${char.name}</h3>
+                <p>${char.role}</p> <!-- Hidden by CSS -->
+                <button>Ver Historia</button> <!-- Hidden by CSS -->
             `;
             charGrid.appendChild(card);
         });
@@ -133,11 +149,22 @@ document.addEventListener('DOMContentLoaded', () => {
     window.showCharacterStory = (char) => {
         const storyContent = document.getElementById('dynamic-story-content');
         const storySection = document.getElementById('story-section');
+        const activeCharDisplay = document.getElementById('active-character-display');
+        const activeCharImg = document.getElementById('active-char-img');
         const sections = document.querySelectorAll('main > section');
 
         if (storyContent && storySection) {
-            // Update content
-            storyContent.innerHTML = char.story + '<button onclick="resetStory()" style="display:block; margin: 20px auto; padding: 10px 20px; cursor:pointer;">Volver a la Leyenda Principal</button>';
+            // Update content logic for Detail View
+            storyContent.innerHTML = char.story + '<button onclick="resetStory()" style="display:block; margin: 30px auto; padding: 10px 20px; cursor:pointer; background:var(--color-wax-red); color:white; border:none; border-radius:4px; font-size:1.2rem;">Volver</button>';
+
+            // Show Active Character Image (Left of Book)
+            if (activeCharDisplay && activeCharImg) {
+                activeCharImg.src = char.image;
+                activeCharDisplay.classList.remove('hidden-character-display');
+                activeCharDisplay.classList.add('active-character-visible');
+                // Shift book to right
+                storySection.classList.add('with-character');
+            }
 
             // Navigate to story section
             sections.forEach(sec => {
@@ -150,7 +177,23 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.resetStory = () => {
+        // Reset Logic
         const storyContent = document.getElementById('dynamic-story-content');
+        const activeCharDisplay = document.getElementById('active-character-display');
+        const storySection = document.getElementById('story-section');
+        const sections = document.querySelectorAll('main > section');
+
+        // Hide Character Image
+        if (activeCharDisplay) {
+            activeCharDisplay.classList.remove('active-character-visible');
+            activeCharDisplay.classList.add('hidden-character-display');
+        }
+
+        // Reset Book Position
+        if (storySection) {
+            storySection.classList.remove('with-character');
+        }
+
         storyContent.innerHTML = `
             <h2>El Botín de los 100 Años</h2>
             <h3>La Promesa</h3>
@@ -166,6 +209,16 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>Y si has llegado hasta aquí, quizás tú también lo entiendas: la verdadera riqueza es la amistad que ni el tiempo ni la muerte pueden borrar.</p>
             <div style="text-align:center; margin-top:30px; font-size: 2rem;">☠️ 🦜 ☠️</div>
         `;
+
+        // Ensure we are on the story section (Home)
+        sections.forEach(sec => {
+            sec.classList.add('hidden-section');
+            sec.classList.remove('active-section');
+        });
+        if (storySection) {
+            storySection.classList.remove('hidden-section');
+            storySection.classList.add('active-section');
+        }
     };
 
 });

@@ -51,15 +51,14 @@ body {
 }
 
 
+
 .nav-ribbon {
     pointer-events: auto;
-    width: 280px;
-    /* Increased from 200px */
-    height: 100px;
-    /* Increased from 80px */
+    width: 200px;
+    /* Reduced width */
+    height: 90px;
     background-image: url('../assets/images/ribbon.webp');
     background-size: 100% 100%;
-    /* Stretch to fit */
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
@@ -67,40 +66,44 @@ body {
     align-items: center;
     color: var(--color-gold);
     font-family: var(--font-heading);
-    font-size: 1.8rem;
-    /* Larger font */
+    font-size: 1.4rem;
+    /* Adjusted font */
     text-align: center;
     cursor: pointer;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     transition: transform 0.2s;
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
-    padding-bottom: 12px;
+    padding-bottom: 25px;
+    /* Adjust text position if needed */
 }
 
 .nav-ribbon:hover {
-    transform: scale(1.1) rotate(-2deg);
+    transform: scale(1.1);
+    /* No rotation */
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.7));
 }
 
 
-/* Tiling Overlay */
-.character-overlay {
-    position: absolute;
-    bottom: -80px;
-    left: -80px;
-    z-index: 50;
-    pointer-events: none;
+/* Active Character View (Left side of book) */
+.hidden-character-display {
+    display: none;
 }
 
-.character-overlay img {
+.active-character-visible {
+    display: block;
+    position: absolute;
+    bottom: -50px;
+    left: 20px;
+    z-index: 60;
+    pointer-events: none;
+    max-width: 30%;
+}
+
+.active-character-visible img {
     height: 700px;
     width: auto;
     filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.6));
-    transition: transform 0.3s ease-in-out;
-}
-
-.character-overlay:hover img {
-    transform: scale(1.05) rotate(5deg);
+    transition: opacity 0.5s ease;
 }
 
 /* Story Scroll Section */
@@ -110,17 +113,28 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
+    transition: transform 0.5s ease;
 }
 
+/* Shift story right when character is active */
+#story-section.with-character {
+    /* REMOVED SHIFT to keep centered - User complained about breakage */
+    /* transform: translateX(150px); */
+}
+
+
 .story-container {
-    width: 1000px;
-    height: 750px;
+    width: 90%;
+    /* Responsive base */
+    max-width: 900px;
+    height: 700px;
     position: relative;
     background-image: url('../assets/images/back_historia.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    /* Increased horizontal padding to constrain text to ~80% of width */
-    padding: 110px 180px;
+    /* 80% Constraint via Padding */
+    padding: 100px 150px;
+    /* Keep strict padding */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -132,6 +146,7 @@ body {
     scrollbar-color: var(--color-gold) var(--color-wood);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 }
+
 
 
 .story-container::-webkit-scrollbar {
@@ -233,7 +248,8 @@ body {
     background: rgba(0, 0, 0, 0.8);
 }
 
-/* Content Area */
+
+/* Content Area Centering */
 .content-area {
     flex-grow: 1;
     display: flex;
@@ -244,14 +260,25 @@ body {
     perspective: 2000px;
 }
 
-/* Flipbook Styles */
-.book-container {
-    width: 800px;
-    height: 500px;
+.book-flex-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     position: relative;
-    transform-style: preserve-3d;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
+
+/* Tiling Overlay - Fixed Bottom Left relative to content-area */
+.character-overlay {
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    z-index: 50;
+    pointer-events: none;
+}
+
 
 .book {
     width: 100%;
@@ -430,19 +457,70 @@ body {
     height: 100%;
 }
 
+
 /* Character Grid (initially hidden) */
 #characters-section {
-    flex-direction: column;
+    flex-direction: row;
+    /* Horizontal alignment */
     align-items: center;
-    overflow-y: auto;
-    padding: 20px;
+    justify-content: center;
+    overflow-y: hidden;
+    /* No scroll needed usually */
+    padding: 0px;
+    height: 100%;
+}
+
+.character-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Align at feet */
+    gap: 30px;
 }
 
 .character-card {
-    background: var(--color-parchment);
-    padding: 15px;
-    border: 1px solid var(--color-ink);
-    border-radius: 5px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    background: transparent;
+    /* No background */
+    padding: 0;
+    border: none;
+    box-shadow: none;
     text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    width: 250px;
+    position: relative;
+}
+
+.character-card img {
+    height: 400px;
+    /* Stand tall */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5));
+}
+
+.character-card:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.character-card h3 {
+    font-family: var(--font-heading);
+    color: var(--color-ink);
+    /* Or maybe darker */
+    font-size: 2rem;
+    margin-top: 10px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.3);
+    /* Slight visibility boost */
+    border-radius: 10px;
+}
+
+.character-card p {
+    display: none;
+    /* Hide role/desc in grid view */
+}
+
+/* Hide button in grid view as well, user clicks the whole figure */
+.character-card button {
+    display: none;
 }

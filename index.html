@@ -48,68 +48,84 @@
             <div class="nav-ribbon" data-target="characters">Personajes</div>
         </header>
 
-        <!-- Main Content Area -->
+
+
+        <!-- Center Content Area -->
         <main class="content-area">
 
-            <!-- Tiling Overlay -->
+            <!-- Tiling Overlay (Absolute Positioned, stays in bottom left) -->
             <div id="tilin-overlay" class="character-overlay">
                 <img src="assets/images/tilin.webp" alt="Tilin el Loro">
             </div>
 
-            <!-- Scrollable Story Section -->
-            <section id="story-section" class="active-section">
-                <div class="story-container">
-                    <div class="story-content" id="dynamic-story-content">
-                        <!-- Content injected via JS -->
-                        <h2>El Botín de los 100 Años</h2>
-                        <h3>La Promesa</h3>
-                        <p>El Botín de los Cien Años es real... Dos hermanos, Barbaján y Barbecue, juraron encontrar el
-                            tesoro más grande jamás visto. Pero el mar guarda secretos oscuros.</p>
-                        <h3>Los Peligros del Mar</h3>
-                        <p>Tilin nos advirtió: "La belleza es como un amanecer, pero lleva a la perdición." Sirenas
-                            encantadoras y el temible Kraken aguardaban en las profundidades, custodiando el camino.</p>
-                        <h3>El Naufragio</h3>
-                        <p>Llegada al destino: Aquí está su barco y el tesoro está dentro. El viaje ha terminado.</p>
-                        <p>Tras una feroz batalla contra el Kraken, el barco sucumbió. Barbaján no pudo sobrevivir, y
-                            Barbecue, en su espera eterna, también falleció.</p>
-                        <p>Inspirado por su promesa, he encontrado en ti un nuevo compañero digno de llevarse este
-                            tesoro: el valor de la amistad.</p>
-                        <h3>Epílogo</h3>
-                        <p>El Botín de los Cien Años es real, sí... Pero también es la fuerza que unió a dos hermanos
-                            hasta el último aliento. Hoy, por fin, se cumple la promesa.</p>
-                        <p>Y si has llegado hasta aquí, quizás tú también lo entiendas: la verdadera riqueza es la
-                            amistad que ni el tiempo ni la muerte pueden borrar.</p>
-                        <div style="text-align:center; margin-top:30px; font-size: 2rem;">☠️ 🦜 ☠️</div>
+            <!-- Active Character Display (When character selected) -->
+            <div id="active-character-display" class="hidden-character-display">
+                <img id="active-char-img" src="" alt="Active Character">
+            </div>
+
+            <!-- Book Container Wrapper for Flex Centering -->
+            <div class="book-flex-wrapper">
+                <!-- Scrollable Story Section -->
+                <section id="story-section" class="active-section">
+                    <div class="story-container">
+                        <div class="story-content" id="dynamic-story-content">
+                            <!-- Content injected via JS -->
+                            <h2>El Botín de los 100 Años</h2>
+                            <h3>La Promesa</h3>
+                            <p>El Botín de los Cien Años es real... Dos hermanos, Barbaján y Barbecue, juraron encontrar
+                                el
+                                tesoro más grande jamás visto. Pero el mar guarda secretos oscuros.</p>
+                            <h3>Los Peligros del Mar</h3>
+                            <p>Tilin nos advirtió: "La belleza es como un amanecer, pero lleva a la perdición." Sirenas
+                                encantadoras y el temible Kraken aguardaban en las profundidades, custodiando el camino.
+                            </p>
+                            <h3>El Naufragio</h3>
+                            <p>Llegada al destino: Aquí está su barco y el tesoro está dentro. El viaje ha terminado.
+                            </p>
+                            <p>Tras una feroz batalla contra el Kraken, el barco sucumbió. Barbaján no pudo sobrevivir,
+                                y
+                                Barbecue, en su espera eterna, también falleció.</p>
+                            <p>Inspirado por su promesa, he encontrado en ti un nuevo compañero digno de llevarse este
+                                tesoro: el valor de la amistad.</p>
+                            <h3>Epílogo</h3>
+                            <p>El Botín de los Cien Años es real, sí... Pero también es la fuerza que unió a dos
+                                hermanos
+                                hasta el último aliento. Hoy, por fin, se cumple la promesa.</p>
+                            <p>Y si has llegado hasta aquí, quizás tú también lo entiendas: la verdadera riqueza es la
+                                amistad que ni el tiempo ni la muerte pueden borrar.</p>
+                            <div style="text-align:center; margin-top:30px; font-size: 2rem;">☠️ 🦜 ☠️</div>
+                        </div>
                     </div>
-                </div>
+            </div>
             </section>
 
-            <!-- Character Section (Hidden by default) -->
+            <!-- Character Section (Must work within flex wrapper or absolute) -->
             <section id="characters-section" class="hidden-section">
                 <h2>La Tripulación</h2>
                 <div class="character-grid">
                     <!-- Cards injected via JS -->
                 </div>
             </section>
-        </main>
+    </div>
+    </main>
 
-        <!-- Treasure Chest Footer -->
-        <footer class="treasure-chest">
-            <div class="chest-content">
-                <div class="resource-item">
-                    <span>Mapa del Tesoro</span>
-                    <button>Descargar</button>
-                </div>
-                <!-- Banner Image Added Here -->
-                <div class="banner-wrapper">
-                    <!-- The banner image takes up most space, buttons float over or around it -->
-                </div>
-                <div class="resource-item">
-                    <span>Puzzles</span>
-                    <button>Descargar</button>
-                </div>
+    <!-- Treasure Chest Footer -->
+    <footer class="treasure-chest">
+        <div class="chest-content">
+            <div class="resource-item">
+                <span>Mapa del Tesoro</span>
+                <button>Descargar</button>
             </div>
-        </footer>
+            <!-- Banner Image Added Here -->
+            <div class="banner-wrapper">
+                <!-- The banner image takes up most space, buttons float over or around it -->
+            </div>
+            <div class="resource-item">
+                <span>Puzzles</span>
+                <button>Descargar</button>
+            </div>
+        </div>
+    </footer>
     </div>
 
     <script src="js/script.js"></script>
