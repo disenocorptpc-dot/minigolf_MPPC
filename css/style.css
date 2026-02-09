@@ -137,8 +137,8 @@ body {
     background-image: url('../assets/images/back_historia.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    /* Increased top padding to 130px */
-    padding: 130px 150px 100px 150px;
+    /* Major increase to top padding to clear the book border completely */
+    padding: 180px 150px 100px 150px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
