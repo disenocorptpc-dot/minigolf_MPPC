@@ -99,8 +99,10 @@ body {
     max-width: 30%;
 }
 
+
 .active-character-visible img {
-    height: 700px;
+    height: 60vh;
+    max-height: 600px;
     width: auto;
     filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.6));
     transition: opacity 0.5s ease;
@@ -123,18 +125,19 @@ body {
 }
 
 
+
 .story-container {
     width: 90%;
-    /* Responsive base */
     max-width: 900px;
-    height: 700px;
+    height: 80vh;
+    /* Responsive height */
+    max-height: 750px;
     position: relative;
     background-image: url('../assets/images/back_historia.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     /* 80% Constraint via Padding */
     padding: 100px 150px;
-    /* Keep strict padding */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -273,10 +276,24 @@ body {
 /* Tiling Overlay - Fixed Bottom Left relative to content-area */
 .character-overlay {
     position: absolute;
-    bottom: -80px;
-    left: -80px;
+    bottom: 0;
+    left: 0;
     z-index: 50;
     pointer-events: none;
+}
+
+.character-overlay img {
+    height: 45vh;
+    max-height: 500px;
+    width: auto;
+    filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.6));
+    transition: transform 0.3s ease-in-out;
+    margin-left: -50px;
+    margin-bottom: -50px;
+}
+
+.character-overlay:hover img {
+    transform: scale(1.05) rotate(5deg);
 }
 
 
