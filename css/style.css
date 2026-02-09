@@ -54,11 +54,10 @@ body {
 
 .nav-ribbon {
     pointer-events: auto;
-    width: 200px;
-    /* Reduced width */
-    height: 90px;
+    width: 220px;
+    height: 100px;
     background-image: url('../assets/images/ribbon.webp');
-    background-size: 100% 100%;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
@@ -67,14 +66,12 @@ body {
     color: var(--color-gold);
     font-family: var(--font-heading);
     font-size: 1.4rem;
-    /* Adjusted font */
     text-align: center;
     cursor: pointer;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     transition: transform 0.2s;
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
-    padding-bottom: 25px;
-    /* Adjust text position if needed */
+    padding-bottom: 10px;
 }
 
 .nav-ribbon:hover {
@@ -126,6 +123,7 @@ body {
 
 
 
+
 .story-container {
     width: 90%;
     max-width: 900px;
@@ -136,8 +134,8 @@ body {
     background-image: url('../assets/images/back_historia.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    /* 80% Constraint via Padding */
-    padding: 100px 150px;
+    /* Increased top padding to 130px */
+    padding: 130px 150px 100px 150px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Navigation Logic ---
     const navRibbons = document.querySelectorAll('.nav-ribbon');
-    const sections = document.querySelectorAll('main > section');
+    // Updated selector to find sections even if wrapped in divs
+    const sections = document.querySelectorAll('.content-area section');
 
     navRibbons.forEach(ribbon => {
         ribbon.addEventListener('click', () => {
@@ -151,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const storySection = document.getElementById('story-section');
         const activeCharDisplay = document.getElementById('active-character-display');
         const activeCharImg = document.getElementById('active-char-img');
-        const sections = document.querySelectorAll('main > section');
+        const sections = document.querySelectorAll('.content-area section');
 
         if (storyContent && storySection) {
             // Update content logic for Detail View
@@ -181,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const storyContent = document.getElementById('dynamic-story-content');
         const activeCharDisplay = document.getElementById('active-character-display');
         const storySection = document.getElementById('story-section');
-        const sections = document.querySelectorAll('main > section');
+        const sections = document.querySelectorAll('.content-area section');
 
         // Hide Character Image
         if (activeCharDisplay) {
