@@ -70,6 +70,8 @@ body {
     font-size: 1.7rem;
     /* Increased font slightly */
     text-align: center;
+    line-height: 1.1;
+    /* Tighter line height for multiline text */
     cursor: pointer;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     transition: transform 0.2s;
@@ -398,16 +400,28 @@ body {
 }
 
 
-/* Footer Banner Style */
+/* Resources Section & Updated Chest Style */
+#resources-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* Ensure it takes full space */
+}
+
+/* Footer Banner Style - Now centered in section */
 .treasure-chest {
     width: 100%;
     background: transparent;
     border: none;
     box-shadow: none;
     height: auto;
-    position: absolute;
-    bottom: 0px;
+    /* Removed absolute bottom positioning */
+    position: relative;
     z-index: 100;
+    display: flex;
+    justify-content: center;
 }
 
 .chest-content {

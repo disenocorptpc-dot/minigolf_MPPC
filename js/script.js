@@ -53,14 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 else targetSection = document.getElementById('story-section'); // Default
             }
 
-            // Hide special active character elements if navigating away from story (or to characters list)
-            if (targetId === 'characters') {
+
+            // Hide special active character elements if navigating away from story (or to characters/resources)
+            if (targetId === 'characters' || targetId === 'resources') {
                 const activeCharDisplay = document.getElementById('active-character-display');
                 const storySectionEl = document.getElementById('story-section');
 
                 // Hide TILIN OVERLAY when in characters to prevent overlap with Barabajan
+                // BUT show it in resources?
                 const tilinOverlay = document.getElementById('tilin-overlay');
-                if (tilinOverlay) tilinOverlay.style.display = 'none';
+                if (targetId === 'characters') {
+                    if (tilinOverlay) tilinOverlay.style.display = 'none';
+                } else {
+                    // Resources: Show Tilin
+                    if (tilinOverlay) tilinOverlay.style.display = 'block';
+                }
 
                 if (activeCharDisplay) {
                     activeCharDisplay.classList.remove('active-character-visible');
