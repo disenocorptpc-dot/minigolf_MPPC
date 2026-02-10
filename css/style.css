@@ -504,11 +504,11 @@ body {
 /* Character Grid (initially hidden) */
 #characters-section {
     flex-direction: row;
-    /* Horizontal alignment */
     align-items: center;
     justify-content: center;
     overflow-y: hidden;
-    /* No scroll needed usually */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
     padding: 0px;
     height: 100%;
 }

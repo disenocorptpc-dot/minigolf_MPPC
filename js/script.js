@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Navigation Logic ---
     const navRibbons = document.querySelectorAll('.nav-ribbon');
-    // Updated selector to find sections even if wrapped in divs
+    // Updated selector to find sections even if wrapped in divs (fixes nested section visibility bug)
     const sections = document.querySelectorAll('.content-area section');
 
     navRibbons.forEach(ribbon => {
@@ -168,9 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const storyContent = document.getElementById('dynamic-story-content');
         const storySection = document.getElementById('story-section');
 
+
         const activeCharDisplay = document.getElementById('active-character-display');
         const activeCharImg = document.getElementById('active-char-img');
-        const sections = document.querySelectorAll('main > section');
+        const sections = document.querySelectorAll('.content-area section');
 
         if (storyContent && storySection) {
             // HIDE TILIN OVERLAY
@@ -203,9 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Reset Logic
         const storyContent = document.getElementById('dynamic-story-content');
 
+
         const activeCharDisplay = document.getElementById('active-character-display');
         const storySection = document.getElementById('story-section');
-        const sections = document.querySelectorAll('main > section');
+        const sections = document.querySelectorAll('.content-area section');
 
         // SHOW TILIN OVERLAY
         const tilinOverlay = document.getElementById('tilin-overlay');
