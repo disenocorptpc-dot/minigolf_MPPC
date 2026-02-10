@@ -49,7 +49,7 @@
                 <img src="assets/images/logo.webp" alt="Minigolf Punta Cana" class="main-logo">
             </div>
             <!-- Separados Mapa y Recursos, sin spacer ya que ahora son 2 a la izquierda, 2 a la derecha -->
-            <div class="nav-ribbon" data-target="resources">Mapa</div>
+            <div class="nav-ribbon" data-target="map">Mapa</div>
             <div class="nav-ribbon" data-target="resources">Recursos</div>
         </header>
 
@@ -63,68 +63,47 @@
                 <img src="assets/images/tilin.webp" alt="Tilin el Loro">
             </div>
 
-            <!-- Active Character Display (When character selected) -->
+            <!-- Active Character Display (When character/map item selected) -->
             <div id="active-character-display" class="hidden-character-display">
                 <img id="active-char-img" src="" alt="Active Character">
             </div>
 
             <!-- Book Container Wrapper for Flex Centering -->
             <div class="book-flex-wrapper">
-                <!-- Scrollable Story Section -->
+
+                <!-- Scrollable Story Section (Used for Home, Character Details, Map Details) -->
                 <section id="story-section" class="active-section">
                     <div class="story-container">
-                        <!-- New Scroll Wrapper -->
-                        <div class="story-scroll-wrapper">
-                            <div class="story-content" id="dynamic-story-content">
+                        <!-- Content Wrapper -->
+                        <div class="story-content-wrapper"
+                            style="width:100%; height:100%; display:flex; flex-direction:column;">
+                            <div class="story-content" id="dynamic-story-content"
+                                style="flex-grow:1; overflow-y:auto; overflow-x:hidden;">
                                 <!-- Content injected via JS -->
-                                <h2>El Botín de los 100 Años</h2>
-                                <p>Había una vez, en un lejano océano, dos hermanos piratas: Barbaján y Barbecue.</p>
-                                <p>Unidos por la sangre y la aventura, navegaron juntos por años en busca de los
-                                    misterios
-                                    del mar. La leyenda que más los obsesionaba era la del tesoro perdido de Jacky,
-                                    la
-                                    Cazadora de Tesoros, quien había escondido su botín más preciado hacía más de un
-                                    siglo. Se decía que ese tesoro, conocido como el Botín de los Cien Años, había
-                                    sido
-                                    alimentado por los restos de quienes morían al buscarlo.</p>
-                                <p>Un tesoro tan real como letal.</p>
-                                <p>Un día, los hermanos encontraron una pista que los trajo hasta esta isla remota. En
-                                    su
-                                    travesía, enfrentaron tormentas, sirenas, bestias marinas y peligros
-                                    indescriptibles.
-                                    Sin embargo, el mayor desafío fue el encuentro con el temido Kraken.</p>
-                                <p>Barbaján, el menor, decidió quedarse a luchar contra la criatura para darle tiempo a
-                                    su
-                                    hermano de seguir su búsqueda, ya estaban demasiado cerca no podían fallar.</p>
-                                <p>Barbecue, el mayor, herido y con el corazón roto, juró encontrar el tesoro y esperar
-                                    a
-                                    que llegara su hermano a su encuentro. En el difícil camino, conoció a Tilin, un
-                                    loro sabio del Santuario de los Loros, donde Barbecue encontró refugio. Tilín lo
-                                    cuidó y se convirtió en su fiel compañero.</p>
-                                <p>Pasó el tiempo, y aunque la heridas de Barbecue sanaron por fuera, su alma siguió
-                                    rota por
-                                    la ausencia de Barbaján. El cansancio y los años hicieron de lo suyo pero antes de
-                                    morir, le hizo a Tilin una petición: "Encuentra a mi hermano... o a ese aventurero
-                                    de buen corazón que merezca este tesoro".</p>
-                                <p>Tilin, ignorando cual fue destino final de Barbaján, partió con el mapa en su
-                                    poder. Así
-                                    comenzó la travesía buscando a quienes escucharían su llamado, para superar cada
-                                    prueba y
-                                    demostrar que eran dignos no solo del oro, sino del vínculo que unió a dos hermanos
-                                    hasta el fin.</p>
-                                <div style="text-align:center; margin-top:30px; font-size: 2rem;">☠️ 🦜 ☠️</div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Character Section (Must work within flex wrapper or absolute) -->
+                <!-- Character Section (Hidden by default) -->
                 <section id="characters-section" class="hidden-section">
                     <h2>La Tripulación</h2>
                     <div class="character-grid">
                         <!-- Cards injected via JS -->
                     </div>
                 </section>
+
+                <!-- NEW: Map Section (Grid of Odyssey Chapters) -->
+                <section id="map-section" class="hidden-section" style="flex-direction:column; align-items:center;">
+                    <h2
+                        style="color:var(--color-wax-red); font-family:var(--font-heading); font-size:3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 20px;">
+                        La Ruta del Tesoro</h2>
+                    <div class="map-grid"
+                        style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1000px;">
+                        <!-- Map Icons injected via JS -->
+                    </div>
+                </section>
+
             </div>
 
             <!-- Resources Section (Moved from Footer) -->
@@ -135,10 +114,8 @@
                             <span>Mapa del Tesoro</span>
                             <button>Descargar</button>
                         </div>
-                        <!-- Banner Image Added Here -->
-                        <div class="banner-wrapper">
-                            <!-- The banner image takes up most space, buttons float over or around it -->
-                        </div>
+                        <!-- Banner Image -->
+                        <div class="banner-wrapper"></div>
                         <div class="resource-item">
                             <span>Puzzles</span>
                             <button>Descargar</button>
