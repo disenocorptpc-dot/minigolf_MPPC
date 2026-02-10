@@ -37,21 +37,26 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show target section
             let targetSection = document.getElementById(targetId + '-section');
 
+
             // Map data-target to section ID
             if (!targetSection) {
                 if (targetId === 'home') {
                     targetSection = document.getElementById('story-section');
                     if (window.resetStory) window.resetStory();
                 }
-                else if (targetId === 'map') targetSection = document.getElementById('map-section');
+                else if (targetId === 'map') {
+                    targetSection = document.getElementById('map-section');
+                }
                 else if (targetId === 'characters') targetSection = document.getElementById('characters-section');
-                // No need for resources fallback if ID matches
+                else if (targetId === 'resources') targetSection = document.getElementById('resources-section');
             }
 
             // Special handling for Home/Map/Characters overlay logic
             const tilinOverlay = document.getElementById('tilin-overlay');
             const activeCharDisplay = document.getElementById('active-character-display');
+            const activeCharImg = document.getElementById('active-char-img'); // Get image element
             const storySectionEl = document.getElementById('story-section');
+            const resourcesSectionEl = document.getElementById('resources-section');
 
             // Hide active character/story if leaving story view (except if handled by resetStory)
             if (activeCharDisplay) {
@@ -60,16 +65,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (storySectionEl) {
                 storySectionEl.classList.remove('with-character');
+                storySectionEl.classList.add('hidden-section'); // Ensure home hides
+            }
+            if (resourcesSectionEl) {
+                resourcesSectionEl.classList.remove('with-character'); // Reset layout
             }
 
             // Overlay Visibility Logic
             if (tilinOverlay) {
-                if (targetId === 'characters' || targetId === 'map') {
-                    // Hide Tilin in grid views to avoid clutter
+                if (targetId === 'characters' || targetId === 'map' || targetId === 'resources') {
+                    // Hide Tilin in grid views AND resources (since we show chest)
                     tilinOverlay.style.display = 'none';
                 } else {
-                    // Show Tilin on Home and potentially Resources (unless user says otherwise)
+                    // Show Tilin on Home
                     tilinOverlay.style.display = 'block';
+                }
+            }
+
+            // SPECIFIC RESOURCES LOGIC - Show Chest
+            if (targetId === 'resources') {
+                if (activeCharDisplay && activeCharImg && resourcesSectionEl) {
+                    // Set Chest Image
+                    activeCharImg.src = 'assets/images/recursos.webp';
+
+                    // Show Display
+                    activeCharDisplay.classList.remove('hidden-character-display');
+                    activeCharDisplay.classList.add('active-character-visible');
+
+                    // Apply layout to resources section (reuse 'with-character' logic if compatible or add specific)
+                    // We need to make sure resourcesSectionEl has the class that triggers the padding.
+                    // The CSS targets: .active-section.with-character .story-content
+                    resourcesSectionEl.classList.add('with-character');
                 }
             }
 
@@ -246,22 +272,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    // --- HOME STORY PAGINATION ---
+    // --- HOME STORY PAGINATION (5 Pages to remove scroll) ---
     const homeStoryPages = [
         `
             <h2>El Botín de los 100 Años</h2>
             <p>Había una vez, en un lejano océano, dos hermanos piratas: Barbaján y Barbecue. Unidos por la sangre y la aventura, navegaron juntos por años en busca de los misterios del mar.</p>
-            <p>La leyenda que más los obsesionaba era la del tesoro perdido de Jacky, la Cazadora de Tesoros, quien había escondido su botín más preciado hacía más de un siglo. Se decía que ese tesoro, conocido como el Botín de los Cien Años, había sido alimentado por los restos de quienes morían al buscarlo.</p>
-            <p>Un tesoro tan real como letal.</p>
+        `,
+        `
+            <p>La leyenda que más los obsesionaba era la del tesoro perdido de Jacky, la Cazadora de Tesoros, quien había escondido su botín más preciado hacía más de un siglo.</p>
+            <p>Se decía que ese tesoro, conocido como el Botín de los Cien Años, había sido alimentado por los restos de quienes morían al buscarlo. Un tesoro tan real como letal.</p>
         `,
         `
             <p>Un día, los hermanos encontraron una pista que los trajo hasta esta isla remota. En su travesía, enfrentaron tormentas, sirenas, bestias marinas y peligros indescriptibles. Sin embargo, el mayor desafío fue el encuentro con el temido Kraken.</p>
-            <p>Barbaján, el menor, decidió quedarse a luchar contra la criatura para darle tiempo a su hermano de seguir su búsqueda, ya estaban demasiado cerca no podían fallar.</p>
-            <p>Barbecue, el mayor, herido y con el corazón roto, juró encontrar el tesoro y esperar a que llegara su hermano a su encuentro. En el difícil camino, conoció a Tilin, un loro sabio del Santuario de los Loros, donde Barbecue encontró refugio. Tilín lo cuidó y se convirtió en su fiel compañero.</p>
         `,
         `
-            <p>Pasó el tiempo, y aunque la heridas de Barbecue sanaron por fuera, su alma siguió rota por la ausencia de Barbaján. El cansancio y los años hicieron de lo suyo pero antes de morir, le hizo a Tilin una petición: "Encuentra a mi hermano... o a ese aventurero de buen corazón que merezca este tesoro".</p>
-            <p>Tilin, ignorando cual fue destino final de Barbaján, partió con el mapa en su poder. Así comenzó la travesía buscando a quienes escucharían su llamado, para superar cada prueba y demostrar que eran dignos no solo del oro, sino del vínculo que unió a dos hermanos hasta el fin.</p>
+            <p>Barbaján, el menor, decidió quedarse a luchar contra la criatura para darle tiempo a su hermano de seguir su búsqueda, ya estaban demasiado cerca no podían fallar.</p>
+            <p>Barbecue, el mayor, herido y con el corazón roto, juró encontrar el tesoro y esperar a que llegara su hermano a su encuentro.</p>
+        `,
+        `
+            <p>En el difícil camino, conoció a Tilín, un loro sabio del Santuario de los Loros, donde Barbecue encontró refugio. Pasó el tiempo, y aunque la heridas de Barbecue sanaron por fuera, su alma siguió rota por la ausencia de Barbaján.</p>
+            <p>Antes de morir, le hizo a Tilín una petición: "Encuentra a mi hermano... o a ese aventurero de buen corazón que merezca este tesoro".</p>
             <div style="text-align:center; margin-top:30px; font-size: 2rem;"></div>
         `
     ];

@@ -103,9 +103,14 @@
                 <!-- NEW: Map Section (Grid of Odyssey Chapters) -->
                 <section id="map-section" class="hidden-section" style="flex-direction:column; align-items:center;">
                     <div class="story-container map-mode">
+                        <!-- BANNER ADDED HERE -->
+                        <div class="map-banner">
+                            <h2>Capítulos</h2>
+                        </div>
+
                         <!-- Wrapper for scrolling, padding handled here -->
                         <div class="map-scroll-wrapper">
-                            <h2 class="map-heading">Capítulos</h2>
+                            <!-- Removed internal heading to avoid duplicate -->
                             <div class="map-grid">
                                 <!-- Map Icons injected via JS -->
                             </div>
@@ -118,18 +123,21 @@
             <!-- Resources Section (Moved from Footer) -->
             <section id="resources-section" class="hidden-section" style="flex-direction:column; align-items:center;">
                 <div class="story-container">
-                    <h2
-                        style="font-family:var(--font-heading); color:var(--color-wax-red); font-size:3rem; margin-bottom:30px;">
-                        Recursos</h2>
+                    <div class="story-content"
+                        style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                        <h2
+                            style="font-family:var(--font-heading); color:var(--color-wax-red); font-size:3rem; margin-bottom:30px; text-align: center;">
+                            Recursos</h2>
 
-                    <div class="resource-item">
-                        <span>Mapa del Tesoro</span>
-                        <button>Descargar</button>
-                    </div>
+                        <div class="resource-item">
+                            <span>Mapa del Tesoro</span>
+                            <button>Descargar</button>
+                        </div>
 
-                    <div class="resource-item">
-                        <span>Puzzles</span>
-                        <button>Descargar</button>
+                        <div class="resource-item">
+                            <span>Puzzles</span>
+                            <button>Descargar</button>
+                        </div>
                     </div>
                 </div>
             </section>

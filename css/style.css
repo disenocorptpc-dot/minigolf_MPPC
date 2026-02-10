@@ -192,44 +192,47 @@ body {
     box-sizing: border-box;
 }
 
-/* Hide scrollbar for Chrome/Safari */
-.story-scroll-wrapper::-webkit-scrollbar {
-    display: none;
+/* Global Thematic Scrollbar - Thicker as requested */
+::-webkit-scrollbar {
+    width: 25px;
 }
 
-.story-scroll-wrapper::-webkit-scrollbar-track {
-    background: rgba(62, 39, 35, 0.3);
-    border-radius: 6px;
-    /* margin: 80px 0; Removed margin as it might behave differently on inner div */
+::-webkit-scrollbar-track {
+    background: #3e2723;
+    border-left: 2px solid #5d4037;
+    border-radius: 8px;
+    margin: 20px 0;
 }
 
-.story-scroll-wrapper::-webkit-scrollbar-thumb {
-    background-color: var(--color-gold);
-    border-radius: 6px;
-    border: 2px solid var(--color-wood);
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-wax-red);
+    border: 3px solid #ffb300;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+::-webkit-scrollbar-thumb:hover {
+    background-color: #d32f2f;
+}
+
+/* Specific Adjustments for Story Content */
 .story-content {
     width: 100%;
     height: auto;
-    /* Limit height to allow space for pagination */
-    /* Assuming wrapper is 100% of container which is 80vh/max 750px */
+    /* Limit height - allowing space for pagination */
     max-height: calc(100% - 70px);
-    /* Leave 70px for pagination */
     overflow-y: auto !important;
-    /* Force scrollable */
-    padding-right: 15px;
+    padding-right: 40px;
+    /* More space for the thicker scrollbar */
     z-index: 10;
 }
 
-/* Fix text overlay for active character */
+/* Fix text overlay for active character - REDUCED padding */
 .active-section.with-character .story-content {
-    /* Push text away from character based on image 1 provided */
-    /* Character is on left, text is getting covered */
-    padding-left: 200px;
+    padding-left: 140px;
+    /* Reduced from 200px */
     box-sizing: border-box;
     text-align: left;
-    /* Better readability when squeezed */
 }
 
 /* Ensure pagination stays docked */
