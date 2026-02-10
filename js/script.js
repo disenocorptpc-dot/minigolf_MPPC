@@ -435,6 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 activeCharImg.src = item.image;
                 activeCharDisplay.classList.remove('hidden-character-display');
                 activeCharDisplay.classList.add('active-character-visible');
+                activeCharDisplay.classList.add('map-detail-active'); // Add specific class for sizing
                 // Remove any char-classes
                 activeCharDisplay.classList.remove('char-barbajan', 'char-barbecue', 'char-jacky', 'char-tilin');
             }
@@ -457,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hide Active Image
         if (activeCharDisplay) {
-            activeCharDisplay.classList.remove('active-character-visible');
+            activeCharDisplay.classList.remove('active-character-visible', 'map-detail-active');
             activeCharDisplay.classList.add('hidden-character-display');
         }
 
@@ -487,7 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Reset Display logic
         if (activeCharDisplay) {
-            activeCharDisplay.classList.remove('active-character-visible', 'char-barbajan', 'char-barbecue', 'char-jacky', 'char-tilin');
+            activeCharDisplay.classList.remove('active-character-visible', 'char-barbajan', 'char-barbecue', 'char-jacky', 'char-tilin', 'map-detail-active');
             activeCharDisplay.classList.add('hidden-character-display');
         }
         if (storySection) {
