@@ -713,10 +713,12 @@ body {
 /* Map Container Scrolling */
 /* Map Container Scrolling & Thematic Scrollbar */
 .story-container.map-mode {
-    padding: 100px 60px 80px;
+    padding: 140px 100px 100px;
+    /* INCREASED padding significantly */
     /* Padding for book edges */
     overflow-y: auto !important;
     display: block;
+    box-sizing: border-box;
     /* Custom Scrollbar */
     scrollbar-width: thin;
     scrollbar-color: var(--color-wax-red) var(--color-wood);
