@@ -3,7 +3,8 @@
     --color-parchment: #f4e4bc;
     --color-parchment-dark: #d6c6a0;
     --color-ink: #3e2723;
-    --color-wax-red: #b71c1c;
+    --color-wax-red: #8a1c1c;
+    /* Darker/Burnt Red "Quemado" */
     --color-wood: #4e342e;
     --color-gold: #ffb300;
     --font-heading: 'Pirata One', cursive;
@@ -218,19 +219,23 @@ body {
     line-height: 0.8;
 }
 
+
 .story-content p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1.8;
     margin-bottom: 25px;
     text-align: justify;
     text-indent: 0;
+    font-weight: 600;
+    /* Bolder as requested */
 }
+
 
 .story-content h2 {
     font-size: 3.2rem;
     margin-bottom: 40px;
     letter-spacing: 2px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; REMOVED per user request */
     border-bottom: 2px solid var(--color-ink);
     padding-bottom: 10px;
     display: inline-block;
