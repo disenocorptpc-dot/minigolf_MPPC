@@ -592,6 +592,29 @@ body {
     display: none;
 }
 
+/* Map Section (New) */
+#map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 80vh;
+    /* Use the new map background */
+    background-image: url('../assets/images/back_mapa.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    /* Optional: multiply slightly to blend if needed, but usually cover is enough 
+       or we can add an overlay div if text is hard to read.
+    */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
 /* Pagination Controls */
 .story-pagination {
     display: flex;
