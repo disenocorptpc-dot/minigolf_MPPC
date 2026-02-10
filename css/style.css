@@ -604,17 +604,20 @@ body {
     justify-content: center;
     width: 100%;
     min-height: 80vh;
-    /* UPDATE: Using definitive filename to bust cache */
-    background-image: url('../assets/images/odyssey_map_bg.webp') !important;
-    background-size: contain;
-    /* Changed to contain to ensure full map is seen if that was the issue */
-    background-position: center;
-    background-repeat: no-repeat;
+    /* UPDATE: Using CSS Wood Texture as fallback/force */
+    background-color: #5D4037;
+    /* Wood Color */
+    background-image:
+        repeating-linear-gradient(90deg, transparent 0, transparent 4px, rgba(0, 0, 0, 0.1) 4px, rgba(0, 0, 0, 0.1) 5px),
+        repeating-linear-gradient(0deg, transparent 0, transparent 15px, rgba(0, 0, 0, 0.1) 15px, rgba(0, 0, 0, 0.1) 16px),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 20%);
+    background-size: 100% 100%;
+
     padding: 50px 20px;
     box-sizing: border-box;
     /* Removing border/shadow if it clashes */
     border-radius: 12px;
-    /* box-shadow: 0 10px 30px rgba(0,0,0,0.5); */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
     margin-top: 20px;
 }
 
