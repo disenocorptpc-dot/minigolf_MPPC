@@ -157,10 +157,14 @@ body {
     width: 100%;
     height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
+    /* Force hide horizontal scroll */
     scrollbar-width: thin;
     scrollbar-color: var(--color-gold) var(--color-wood);
     /* Padding to keep text away from scrollbar and visually centered in "page" */
     padding-right: 15px;
+    box-sizing: border-box;
+    /* IMPORTANT to prevent width+padding overflow */
 }
 
 /* Update scrollbar selectors to target the wrapper now */

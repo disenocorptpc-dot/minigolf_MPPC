@@ -178,8 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const tilinOverlay = document.getElementById('tilin-overlay');
             if (tilinOverlay) tilinOverlay.style.display = 'none';
 
-            // Update content logic for Detail View
-            storyContent.innerHTML = char.story + '<button onclick="resetStory()" style="display:block; margin: 30px auto; padding: 10px 20px; cursor:pointer; background:var(--color-wax-red); color:white; border:none; border-radius:4px; font-size:1.2rem;">Volver</button>';
+            // Update content logic for Detail View with "returnToCharacters()"
+            storyContent.innerHTML = char.story + '<button onclick="returnToCharacters()" style="display:block; margin: 30px auto; padding: 10px 20px; cursor:pointer; background:var(--color-wax-red); color:white; border:none; border-radius:4px; font-size:1.2rem;">Volver</button>';
 
             // Show Active Character Image (Left of Book)
             if (activeCharDisplay && activeCharImg) {
@@ -198,6 +198,36 @@ document.addEventListener('DOMContentLoaded', () => {
             storySection.classList.remove('hidden-section');
             storySection.classList.add('active-section');
         }
+    };
+
+
+    window.returnToCharacters = () => {
+        const activeCharDisplay = document.getElementById('active-character-display');
+        const storySection = document.getElementById('story-section');
+        const charsSection = document.getElementById('characters-section');
+        const tilinOverlay = document.getElementById('tilin-overlay');
+
+        // Hide Active Character Image
+        if (activeCharDisplay) {
+            activeCharDisplay.classList.remove('active-character-visible');
+            activeCharDisplay.classList.add('hidden-character-display');
+        }
+
+        // Reset Book layout
+        if (storySection) {
+            storySection.classList.remove('with-character');
+            storySection.classList.add('hidden-section');
+            storySection.classList.remove('active-section');
+        }
+
+        // Show Characters Section
+        if (charsSection) {
+            charsSection.classList.remove('hidden-section');
+            charsSection.classList.add('active-section');
+        }
+
+        // Keep Tilin HIDDEN in characters section
+        if (tilinOverlay) tilinOverlay.style.display = 'none';
     };
 
     window.resetStory = () => {
