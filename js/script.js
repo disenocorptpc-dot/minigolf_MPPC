@@ -360,6 +360,16 @@ document.addEventListener('DOMContentLoaded', () => {
             content: `
                 <h3>Ambiente:</h3>
                 <p>Has llegado a la Isla de los Cocos. Aquí comienza la búsqueda del Botín de los Cien Años con mapa, la carta del Pirata Barbecue y un fabuloso guía</p>
+                
+                <div class="letter" style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 5px; margin: 15px 0; font-style: italic; border: 1px dashed var(--color-ink);">
+                    <p><strong>Mi querido hermano Barbaján,</strong></p>
+                    <p>Si esta carta ha llegado a tus manos, es porque el mar aún cree en nosotros. Me encuentro encallado entre rocas traicioneras, pero sé que tú, forjado por tormentas y batallas, sabrás encontrarme.</p>
+                    <p>La lucha fue feroz… y valió la pena. Al escapar de la muerte descubrí aquello que siempre nos llamó: el Botín de los Cien Años, el tesoro más temido y codiciado de los siete mares, legado de Jacky, la Cazadora de Tesoros. No es solo oro lo que guarda, sino el destino de quienes lo buscaron durante un siglo.</p>
+                    <p>He marcado el camino. Sigue el mapa que llevará mi amigo Tilín. Confía en él, pero mantente alerta: criaturas, engaños y mares furiosos pondrán a prueba tu valor.</p>
+                    <p>Si el coraje no te abandona, nos encontraremos al final del viaje.</p>
+                    <p style="text-align:right;"><strong>Tu hermano, Barbecue</strong></p>
+                </div>
+
                 <h3>Tilín:</h3>
                 <p>¡Hola! Soy Tilín, guía y consejero de Barbecue. <br>Sígueme… solo los valientes llegan al tesoro.</p>
             `,
