@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "barbecue",
             name: "Barbecue",
             role: "El Guardián Eterno",
-            image: "assets/images/barbecue.webp",
+            image: "assets/images/barbajan.webp",
             story: `
                 <h3>Barbecue</h3>
                 <p>Pirata valiente y amante de la aventura.</p>
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "barbajan",
             name: "Barbaján",
             role: "El Guerrero",
-            image: "assets/images/barbajan.webp",
+            image: "assets/images/barbecue.webp",
             story: `
                 <h3>Barbaján</h3>
                 <p>El menor de los dos hermanos, un pirata valiente y de gran corazón.</p>

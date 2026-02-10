@@ -712,38 +712,50 @@ body {
 
 /* Map Container Scrolling */
 /* Map Container Scrolling & Thematic Scrollbar */
+/* Map Container & Thematic Scrollbar */
 .story-container.map-mode {
-    padding: 140px 100px 100px;
-    /* INCREASED padding significantly */
-    /* Padding for book edges */
-    overflow-y: auto !important;
-    display: block;
+    padding: 0;
+    /* Reset padding here, handled by wrapper */
+    overflow-y: hidden !important;
+    /* Prevent outer scroll */
+    display: flex;
+    /* Flex to center inner wrapper */
+    flex-direction: column;
     box-sizing: border-box;
-    /* Custom Scrollbar */
+}
+
+/* Inner Wrapper for Map Scrolling - Similar to Home Story Wrapper */
+.map-scroll-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    /* PADDING INSIDE WRAPPER - This is the key fix */
+    padding: 110px 80px 80px;
+    box-sizing: border-box;
+    /* Thematic Scrollbar on the wrapper */
     scrollbar-width: thin;
     scrollbar-color: var(--color-wax-red) var(--color-wood);
 }
 
-.story-container.map-mode::-webkit-scrollbar {
-    width: 12px;
-    /* Thicker for thematic look */
+.map-scroll-wrapper::-webkit-scrollbar {
+    width: 20px;
+    /* MUCH THICKER as requested */
 }
 
-.story-container.map-mode::-webkit-scrollbar-track {
+.map-scroll-wrapper::-webkit-scrollbar-track {
     background: #3e2723;
-    /* Dark wood */
-    border-left: 1px solid #5d4037;
-    border-radius: 6px;
-    margin: 40px 0;
-    /* Keep scrollbar away from corners */
+    border-left: 2px solid #5d4037;
+    border-radius: 8px;
+    margin: 30px 0;
 }
 
-.story-container.map-mode::-webkit-scrollbar-thumb {
+.map-scroll-wrapper::-webkit-scrollbar-thumb {
     background-color: var(--color-wax-red);
-    /* Red wax color */
-    border: 2px solid #ffb300;
-    /* Gold border */
-    border-radius: 6px;
+    border: 3px solid #ffb300;
+    /* Thicker gold border */
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    /* Depth */
 }
 
 .story-container.map-mode::-webkit-scrollbar-thumb:hover {
