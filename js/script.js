@@ -92,25 +92,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Character List & Data ---
     const characterData = [
         {
-            id: "barbajan",
-            name: "Barbaján",
-            role: "El Guerrero",
-            image: "assets/images/barbecue.webp",
-            story: `
-                <h3>Barbaján</h3>
-                <p>El menor de los dos hermanos, un pirata valiente y de gran corazón.</p>
-                <p>Aventurero y generoso, eligió enfrentar solo al Kraken para salvar a su hermano y permitir que la historia continuara.</p>
-            `
-        },
-        {
             id: "barbecue",
             name: "Barbecue",
             role: "El Guardián Eterno",
-            image: "assets/images/barbajan.webp",
+            image: "assets/images/barbecue.webp",
             story: `
                 <h3>Barbecue</h3>
                 <p>Pirata valiente y amante de la aventura.</p>
                 <p>Buscador incansable de grandes tesoros, descubrió que el Botín de los Cien Años le regalo algo aun más valioso que el oro: la amistad de Tilín y la hermandad eterna con Barbaján.</p>
+            `
+        },
+        {
+            id: "barbajan",
+            name: "Barbaján",
+            role: "El Guerrero",
+            image: "assets/images/barbajan.webp",
+            story: `
+                <h3>Barbaján</h3>
+                <p>El menor de los dos hermanos, un pirata valiente y de gran corazón.</p>
+                <p>Aventurero y generoso, eligió enfrentar solo al Kraken para salvar a su hermano y permitir que la historia continuara.</p>
             `
         },
         {
