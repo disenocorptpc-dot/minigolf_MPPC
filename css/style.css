@@ -212,8 +212,32 @@ body {
 .story-content {
     width: 100%;
     height: auto;
-    text-align: justify;
+    /* Limit height to allow space for pagination */
+    /* Assuming wrapper is 100% of container which is 80vh/max 750px */
+    max-height: calc(100% - 70px);
+    /* Leave 70px for pagination */
+    overflow-y: auto !important;
+    /* Force scrollable */
     padding-right: 15px;
+    z-index: 10;
+}
+
+/* Fix text overlay for active character */
+.active-section.with-character .story-content {
+    /* Push text away from character based on image 1 provided */
+    /* Character is on left, text is getting covered */
+    padding-left: 200px;
+    box-sizing: border-box;
+    text-align: left;
+    /* Better readability when squeezed */
+}
+
+/* Ensure pagination stays docked */
+.story-pagination {
+    height: 60px;
+    /* Fixed height area */
+    flex-shrink: 0;
+    /* Do not shrink */
 }
 
 
@@ -685,14 +709,34 @@ body {
 }
 
 
-/* Map Heading */
-.map-heading {
+/* Map Banner - Reusing banner.webp as requested (or a similar visual) */
+.map-banner {
+    position: absolute;
+    top: -40px;
+    /* Above the book */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 100px;
+    background-image: url('../assets/images/banner.webp');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.map-banner h2 {
     font-family: var(--font-heading);
-    color: var(--color-wax-red);
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-ink);
+    /* Or wax red */
+    margin: 0;
+    margin-top: -10px;
+    /* Optical centering */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 /* Map Grid Styles - UPDATED for Visual Appeal */
