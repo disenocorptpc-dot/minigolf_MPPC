@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
+
             // SPECIFIC RESOURCES LOGIC - Show Chest
             if (targetId === 'resources') {
                 if (activeCharDisplay && activeCharImg && resourcesSectionEl) {
@@ -91,12 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Show Display
                     activeCharDisplay.classList.remove('hidden-character-display');
                     activeCharDisplay.classList.add('active-character-visible');
+                    activeCharDisplay.classList.add('resource-mode'); // Enable small size css
 
                     // Apply layout to resources section (reuse 'with-character' logic if compatible or add specific)
                     // We need to make sure resourcesSectionEl has the class that triggers the padding.
                     // The CSS targets: .active-section.with-character .story-content
                     resourcesSectionEl.classList.add('with-character');
                 }
+            } else {
+                if (activeCharDisplay) activeCharDisplay.classList.remove('resource-mode');
             }
 
 
