@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             role: "La Cazadora",
             image: "assets/images/jacky.webp",
             story: `
-                <h3>Jacky, la Cazadora de Tesoros</h3>
+                <h3>Jacky</h3>
                 <p>Legendaria pirata de hace un siglo.</p>
                 <p>Ruda, bella y astuta, escondió el Botín de los Cien Años, dejando su espíritu y valentía vivos en cada moneda e historia que ha quedado guardada en su tesoro.</p>
             `
@@ -292,7 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
         `
             <p>En el difícil camino, conoció a Tilín, un loro sabio del Santuario de los Loros, donde Barbecue encontró refugio. Pasó el tiempo, y aunque la heridas de Barbecue sanaron por fuera, su alma siguió rota por la ausencia de Barbaján.</p>
             <p>Antes de morir, le hizo a Tilín una petición: "Encuentra a mi hermano... o a ese aventurero de buen corazón que merezca este tesoro".</p>
-            <div style="text-align:center; margin-top:30px; font-size: 2rem;"></div>
+            <div style="text-align:center; margin-top:30px;">
+                <button onclick="resetStory()" style="padding: 10px 20px; font-family: var(--font-heading); background: var(--color-wax-red); color: white; border: 2px solid var(--color-wood); border-radius: 5px; cursor: pointer; font-size: 1.2rem;">Volver al Inicio</button>
+            </div>
         `
     ];
     let currentHomePage = 0;

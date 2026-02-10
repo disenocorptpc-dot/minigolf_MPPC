@@ -713,33 +713,40 @@ body {
 
 
 /* Map Banner - Reusing banner.webp as requested (or a similar visual) */
+/* Map Banner - Reusing banner.webp as requested (or a similar visual) */
 .map-banner {
     position: absolute;
-    top: -40px;
-    /* Above the book */
+    top: -50px;
+    /* Moved up as requested in image 2 */
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
-    height: 100px;
+    width: 600px;
+    /* Much wider as requested in image 2 */
+    height: 140px;
     background-image: url('../assets/images/banner.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 20;
+    z-index: 30;
+    /* Higher Z-index to be on top */
     pointer-events: none;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+    /* Add depth */
 }
 
 .map-banner h2 {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    /* Larger font */
     color: var(--color-ink);
     /* Or wax red */
     margin: 0;
-    margin-top: -10px;
+    margin-top: -15px;
     /* Optical centering */
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
 }
 
 /* Map Grid Styles - UPDATED for Visual Appeal */
