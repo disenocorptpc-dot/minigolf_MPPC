@@ -25,12 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper to reset scroll position
     const resetScrolls = () => {
-        const scrollable = document.querySelectorAll('.map-scroll-wrapper, .story-content, .story-container, #story-section, #resources-section');
+        // Find ALL potentially scrollable containers
+        const scrollable = document.querySelectorAll('.map-scroll-wrapper, .story-content, .story-container, #story-section, #resources-section, .story-content-wrapper, .resource-item, .resource-grid');
+
         scrollable.forEach(el => {
             el.scrollTop = 0;
-            if (el.scrollTo) el.scrollTo(0, 0);
+            // Also try scrollTo if supported
+            if (typeof el.scrollTo === 'function') {
+                try { el.scrollTo({ top: 0, behavior: 'auto' }); } catch (e) { } // Use auto for instant reset
+            }
         });
-        window.scrollTo(0, 0);
+
+        // Window scroll too
+        window.scrollTo({ top: 0, behavior: 'auto' });
     };
 
     navRibbons.forEach(ribbon => {
@@ -38,7 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = ribbon.getAttribute('data-target');
             console.log('Navigating to:', targetId);
 
+            // Reset Immediately
             resetScrolls();
+
+            // Reset AGAIN after a tiny delay to allow DOM/CSS layout to settle (critical for display:none -> block transitions)
+            setTimeout(resetScrolls, 10);
+            setTimeout(resetScrolls, 100);
 
             // Hide all sections
             sections.forEach(sec => {
