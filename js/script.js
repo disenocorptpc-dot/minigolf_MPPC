@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Body Background Switching
             if (targetId === 'map') {
-                document.body.style.backgroundImage = "url('assets/images/odyssey_map_bg.webp')";
+                document.body.style.backgroundImage = "url('assets/images/nvo_fondo.webp')";
                 document.body.style.backgroundSize = "cover"; // Ensure it covers
             } else {
                 document.body.style.backgroundImage = "url('assets/images/mapa.webp')";
