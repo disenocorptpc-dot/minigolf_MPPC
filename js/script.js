@@ -280,11 +280,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (prevBtn) prevBtn.style.visibility = index > 0 ? 'visible' : 'hidden';
         if (nextBtn) nextBtn.style.visibility = index < homeStoryPages.length - 1 ? 'visible' : 'hidden';
 
+
         // Show pagination controls container explicitly
         if (pagControls) {
             pagControls.style.display = 'flex';
             pagControls.style.justifyContent = 'space-between';
             pagControls.style.alignItems = 'center';
+            // Force visibility in case it was hidden
+            pagControls.classList.remove('hidden-section');
         }
     };
 

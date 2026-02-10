@@ -171,6 +171,12 @@ body {
     background-color: transparent;
 }
 
+/* Map Mode Styling for Story Container */
+.story-container.map-mode {
+    padding: 80px 40px;
+    /* Wider content area for map grid */
+}
+
 /* NEW SCROLL WRAPPER STYLE */
 
 .story-scroll-wrapper {
