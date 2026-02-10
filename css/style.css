@@ -734,10 +734,12 @@ body {
 
 
 /* Map Banner - Reusing banner.webp as requested (or a similar visual) */
-/* Map Banner - Reusing banner.webp as requested (or a similar visual) */
 .map-banner {
     position: absolute;
-    top: -50px;
+    /* Since it's now relative to #map-section, which centers content vertically-ish */
+    /* We need to position it relative to the TOP of the section */
+    top: 50px;
+    /* Adjusted to sit above the book */
     left: 50%;
     transform: translateX(-50%);
     width: 600px;
@@ -748,8 +750,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
-    /* BUMPED TO 100 as requested */
+    z-index: 1000;
+    /* Ensure it is definitively on top */
     pointer-events: none;
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
 }
@@ -763,23 +765,23 @@ body {
 }
 
 /* Map Grid Wrapper (The scrollable part) */
+/* Map Grid Wrapper (The scrollable part) */
 .map-scroll-wrapper {
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 120px);
+    height: calc(100% - 80px);
     overflow-y: auto;
+    overflow-x: hidden !important;
+    /* Force hide horizontal scroll */
+
     /* PADDING - Inner content spacing from book edges */
     padding: 120px 80px 80px 80px;
     box-sizing: border-box;
-    /* Force margin to pull scrollbar inwards away from book edge */
-    margin: 20px 40px;
-    /* Adjust width to account for margin */
-    width: calc(100% - 80px);
-    height: calc(100% - 40px);
+
+    /* Force margin to pull scrollbar inwards away from book edge - INCREASED */
+    margin: 40px 60px;
 
     /* Enforce Scrollbar Styles specifically for this element */
     scrollbar-color: var(--color-wax-red) var(--color-wood);
-    scrollbar-width: auto !important;
-    /* Force thick scrollbar */
 }
 
 .map-scroll-wrapper::-webkit-scrollbar {
