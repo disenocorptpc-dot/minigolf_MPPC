@@ -15,7 +15,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2b1d18;
-    background-image: url('../assets/images/mapa.webp');
+    /* UPDATE: Global background set to nvo_fondo.webp */
+    background-image: url('../assets/images/nvo_fondo.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -604,13 +605,8 @@ body {
     justify-content: center;
     width: 100%;
     min-height: 80vh;
-    /* UPDATE: Using user provided nvo_fondo.webp */
-    background-image: url('../assets/images/nvo_fondo.webp') !important;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Reset CSS fallback if any */
-    background-color: transparent;
+    /* UPDATE: Removing specific background to show global body background */
+    background: transparent !important;
 
     padding: 50px 20px;
     box-sizing: border-box;
