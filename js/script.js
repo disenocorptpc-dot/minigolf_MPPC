@@ -23,10 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Updated selector to find sections even if wrapped in divs (fixes nested section visibility bug)
     const sections = document.querySelectorAll('.content-area section');
 
+    // Helper to reset scroll position
+    const resetScrolls = () => {
+        const scrollable = document.querySelectorAll('.map-scroll-wrapper, .story-content, .story-container, #story-section, #resources-section');
+        scrollable.forEach(el => {
+            el.scrollTop = 0;
+            if (el.scrollTo) el.scrollTo(0, 0);
+        });
+        window.scrollTo(0, 0);
+    };
+
     navRibbons.forEach(ribbon => {
         ribbon.addEventListener('click', () => {
             const targetId = ribbon.getAttribute('data-target');
             console.log('Navigating to:', targetId);
+
+            resetScrolls();
 
             // Hide all sections
             sections.forEach(sec => {
