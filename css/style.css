@@ -207,35 +207,33 @@ body {
     padding-right: 15px;
 }
 
-.story-content h2 {
+
+/* Drop Cap and Editorial Styling */
+.story-content p:first-of-type::first-letter {
+    font-size: 3.5rem;
     font-family: var(--font-heading);
     color: var(--color-wax-red);
-    text-align: center;
-    font-size: 3rem;
-    /* Larger */
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    float: left;
+    margin-right: 10px;
+    line-height: 0.8;
 }
-
-.story-content h3 {
-    font-family: var(--font-heading);
-    color: var(--color-ink);
-    font-size: 2.2rem;
-    /* Larger */
-    margin-top: 35px;
-    border-bottom: 3px solid var(--color-wax-red);
-    padding-bottom: 5px;
-    display: inline-block;
-}
-
 
 .story-content p {
-    font-size: 1.5rem;
-    font-weight: 700;
-    /* Bolder */
+    font-size: 1.4rem;
     line-height: 1.8;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    text-align: justify;
+    text-indent: 0;
+}
+
+.story-content h2 {
+    font-size: 3.2rem;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--color-ink);
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
 .logo-container {
@@ -600,16 +598,13 @@ body {
     justify-content: center;
     width: 100%;
     min-height: 80vh;
-    /* Use the new map background */
-    background-image: url('../assets/images/back_mapa.webp');
+    /* Use the new map background - Adding !important to force override if cached */
+    background-image: url('../assets/images/back_mapa.webp') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 50px 20px;
     box-sizing: border-box;
-    /* Optional: multiply slightly to blend if needed, but usually cover is enough 
-       or we can add an overlay div if text is hard to read.
-    */
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
@@ -658,13 +653,27 @@ body {
 
 .map-icon-container {
     width: 140px;
-    height: 140px;
+    height: auto;
     background-color: transparent;
     cursor: pointer;
     transition: transform 0.3s;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.map-icon-name {
+    margin-top: 10px;
+    font-family: var(--font-heading);
+    color: var(--color-ink);
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+    /* Initially hidden or faded? No, user wants it visible */
+    font-weight: bold;
+    pointer-events: none;
+    /* Let clicks pass to image/container */
 }
 
 /* Select image directly inside map container */

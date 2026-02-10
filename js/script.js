@@ -241,17 +241,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeStoryPages = [
         `
             <h2>El Botín de los 100 Años</h2>
-            <p>Había una vez, en un lejano océano, dos hermanos piratas: Barbaján y Barbecue.</p>
-            <p>Unidos por la sangre y la aventura, navegaron juntos por años en busca de los misterios del mar. La leyenda que más los obsesionaba era la del tesoro perdido de Jacky, la Cazadora de Tesoros, quien había escondido su botín más preciado hacía más de un siglo. Se decía que ese tesoro, conocido como el Botín de los Cien Años, había sido alimentado por los restos de quienes morían al buscarlo.</p>
+            <p>Había una vez, en un lejano océano, dos hermanos piratas: Barbaján y Barbecue. Unidos por la sangre y la aventura, navegaron juntos por años en busca de los misterios del mar.</p>
+            <p>La leyenda que más los obsesionaba era la del tesoro perdido de Jacky, la Cazadora de Tesoros, quien había escondido su botín más preciado hacía más de un siglo. Se decía que ese tesoro, conocido como el Botín de los Cien Años, había sido alimentado por los restos de quienes morían al buscarlo.</p>
             <p>Un tesoro tan real como letal.</p>
         `,
         `
-             <p>Un día, los hermanos encontraron una pista que los trajo hasta esta isla remota. En su travesía, enfrentaron tormentas, sirenas, bestias marinas y peligros indescriptibles. Sin embargo, el mayor desafío fue el encuentro con el temido Kraken.</p>
+            <p>Un día, los hermanos encontraron una pista que los trajo hasta esta isla remota. En su travesía, enfrentaron tormentas, sirenas, bestias marinas y peligros indescriptibles. Sin embargo, el mayor desafío fue el encuentro con el temido Kraken.</p>
             <p>Barbaján, el menor, decidió quedarse a luchar contra la criatura para darle tiempo a su hermano de seguir su búsqueda, ya estaban demasiado cerca no podían fallar.</p>
-            <p>Barbecue, el mayor, herido y con el corazón roto, juró encontrar el tesoro y esperar a que llegara su hermano a su encuentro. En el difícil camino, conoció a Tilin, un loro sabio del Santuario de los Loros, donde Barbecue encontró refugio.</p>
+            <p>Barbecue, el mayor, herido y con el corazón roto, juró encontrar el tesoro y esperar a que llegara su hermano a su encuentro. En el difícil camino, conoció a Tilin, un loro sabio del Santuario de los Loros, donde Barbecue encontró refugio. Tilín lo cuidó y se convirtió en su fiel compañero.</p>
         `,
         `
-            <p>Tilin lo cuidó y se convirtió en su fiel compañero.</p>
             <p>Pasó el tiempo, y aunque la heridas de Barbecue sanaron por fuera, su alma siguió rota por la ausencia de Barbaján. El cansancio y los años hicieron de lo suyo pero antes de morir, le hizo a Tilin una petición: "Encuentra a mi hermano... o a ese aventurero de buen corazón que merezca este tesoro".</p>
             <p>Tilin, ignorando cual fue destino final de Barbaján, partió con el mapa en su poder. Así comenzó la travesía buscando a quienes escucharían su llamado, para superar cada prueba y demostrar que eran dignos no solo del oro, sino del vínculo que unió a dos hermanos hasta el fin.</p>
             <div style="text-align:center; margin-top:30px; font-size: 2rem;">☠️ 🦜 ☠️</div>
@@ -406,6 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             icon.innerHTML = `
                 <img src="${item.image}" alt="${item.title}" class="map-icon-img">
+                <div class="map-icon-name">${item.title}</div>
             `;
             mapGrid.appendChild(icon);
         });
