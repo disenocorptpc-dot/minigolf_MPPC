@@ -474,14 +474,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (storyContent && storySection) {
             // Hide Home Pagination
-            if (pagControls) pagControls.style.display = 'none';
+            if (pagControls) {
+                // FORCE HIDE with important to override CSS
+                pagControls.style.setProperty('display', 'none', 'important');
+            }
 
-            // Set Content
+            // Set Content (Injecting content manually instead of using home story pages)
             storyContent.innerHTML = `
-                <h2 style="color:var(--color-wax-red); font-family:var(--font-heading);">${item.title}</h2>
-                ${item.content}
-                <button onclick="returnToMap()" style="display:block; margin: 30px auto; padding: 10px 20px; cursor:pointer; background:var(--color-wax-red); color:white; border:none; border-radius:4px; font-size:1.2rem;">Volver al Mapa</button>
-            <br><br><!-- Spacer for button visibility -->
+                <div class="map-detail-content">
+                    <h2 style="color:var(--color-wax-red); font-family:var(--font-heading); margin-bottom: 20px;">${item.title}</h2>
+                    ${item.content}
+                    <button onclick="returnToMap()" style="display:block; margin: 30px auto; padding: 10px 25px; cursor:pointer; background:var(--color-wax-red); color:white; border:2px solid var(--color-wood); border-radius:4px; font-size:1.5rem; font-family:var(--font-heading);">Volver al Mapa</button>
+                    <br><br>
+                </div>
             `;
 
             // Active Image (The Map Icon, but bigger)

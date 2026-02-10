@@ -738,11 +738,9 @@ body {
 .map-banner {
     position: absolute;
     top: -50px;
-    /* Moved up as requested in image 2 */
     left: 50%;
     transform: translateX(-50%);
     width: 600px;
-    /* Much wider as requested in image 2 */
     height: 140px;
     background-image: url('../assets/images/banner.webp');
     background-size: 100% 100%;
@@ -750,11 +748,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 30;
-    /* Higher Z-index to be on top */
+    z-index: 100;
+    /* BUMPED TO 100 as requested */
     pointer-events: none;
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
-    /* Add depth */
+}
+
+/* Map Grid Wrapper (The scrollable part) */
+.map-scroll-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    /* PADDING INCREASED to make content smaller within book */
+    padding: 110px 100px 80px;
+    box-sizing: border-box;
+    /* Thematic Scrollbar on the wrapper */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-wax-red) var(--color-wood);
 }
 
 .map-banner h2 {
