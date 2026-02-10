@@ -506,39 +506,43 @@ body {
 }
 
 /* Container for items to sit ON TOP of the banner */
+/* Resources Section updated to fit in Story Container */
 .resource-item {
-    z-index: 10;
-    /* Higher than banner */
-    margin: 0 5%;
-    /* Spacing between buttons */
-    margin-bottom: 55px;
-    /* Push up to be centered vertically in the banner */
-    text-shadow: 2px 2px 4px #000;
+    width: 60%;
+    max-width: 500px;
+    margin: 20px auto;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    border-bottom: 2px dashed var(--color-ink);
+    padding-bottom: 10px;
 }
 
 .resource-item span {
-    font-size: 1.5rem;
-    color: var(--color-gold);
-    text-shadow: 2px 2px 0 #000;
+    font-size: 2rem;
+    color: var(--color-wax-red);
     font-family: var(--font-heading);
+    /* Remove text shadow used for dark banner */
+    text-shadow: none;
 }
 
 .resource-item button {
-    background: linear-gradient(180deg, #d32f2f, #b71c1c);
-    border: 1px solid #8e0000;
-    color: white;
+    background: transparent;
+    border: 2px solid var(--color-ink);
+    color: var(--color-ink);
     padding: 8px 25px;
     font-size: 1.1rem;
     font-family: var(--font-body);
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: transform 0.1s;
+    transition: all 0.2s;
+}
+
+.resource-item button:hover {
+    background: var(--color-wax-red);
+    color: var(--color-parchment);
+    border-color: var(--color-wax-red);
 }
 
 
