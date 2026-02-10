@@ -73,6 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
+
+            // Body Background Switching
+            if (targetId === 'map') {
+                document.body.style.backgroundImage = "url('assets/images/odyssey_map_bg.webp')";
+                document.body.style.backgroundSize = "cover"; // Ensure it covers
+            } else {
+                document.body.style.backgroundImage = "url('assets/images/mapa.webp')";
+                document.body.style.backgroundSize = "cover";
+            }
+
             if (targetSection) {
                 targetSection.classList.remove('hidden-section');
                 targetSection.classList.add('active-section');
