@@ -711,11 +711,41 @@ body {
 }
 
 /* Map Container Scrolling */
+/* Map Container Scrolling & Thematic Scrollbar */
 .story-container.map-mode {
-    padding: 80px 40px;
+    padding: 100px 60px 80px;
+    /* Padding for book edges */
     overflow-y: auto !important;
-    /* Allow scrolling */
     display: block;
+    /* Custom Scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-wax-red) var(--color-wood);
+}
+
+.story-container.map-mode::-webkit-scrollbar {
+    width: 12px;
+    /* Thicker for thematic look */
+}
+
+.story-container.map-mode::-webkit-scrollbar-track {
+    background: #3e2723;
+    /* Dark wood */
+    border-left: 1px solid #5d4037;
+    border-radius: 6px;
+    margin: 40px 0;
+    /* Keep scrollbar away from corners */
+}
+
+.story-container.map-mode::-webkit-scrollbar-thumb {
+    background-color: var(--color-wax-red);
+    /* Red wax color */
+    border: 2px solid #ffb300;
+    /* Gold border */
+    border-radius: 6px;
+}
+
+.story-container.map-mode::-webkit-scrollbar-thumb:hover {
+    background-color: #b71c1c;
 }
 
 .map-icon-container {
