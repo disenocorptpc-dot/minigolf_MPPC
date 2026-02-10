@@ -762,8 +762,7 @@ body {
     /* PADDING INCREASED to make content smaller within book */
     padding: 110px 100px 80px;
     box-sizing: border-box;
-    /* Thematic Scrollbar on the wrapper */
-    scrollbar-width: thin;
+    /* Thematic Scrollbar removed custom thin width so it becomes thick */
     scrollbar-color: var(--color-wax-red) var(--color-wood);
 }
 
