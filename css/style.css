@@ -600,12 +600,21 @@ body {
 }
 
 /* Specific Resource Section Layout Override */
-#resources-section {
-    display: flex;
-    justify-content: center;
+/* RESOURCE SECTION OVERRIDES to prevent squashing */
+#resources-section.with-character .story-container {
+    width: 90% !important;
+    /* Force full width, do not shrink to 60% */
+    margin: 0px !important;
+    /* Reset automatic margins */
+    transition: none;
+}
+
+#resources-section .story-content {
+    padding-left: 200px !important;
+    /* Increase left padding to avoid the chest */
+    padding-top: 40px;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    /* Center content vertically if needed */
 }
 
 .active-section {
