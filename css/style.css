@@ -604,15 +604,17 @@ body {
     justify-content: center;
     width: 100%;
     min-height: 80vh;
-    /* Use the new map background - Adding !important to force override if cached */
-    background-image: url('../assets/images/back_mapa.webp') !important;
-    background-size: cover;
+    /* UPDATE: Using definitive filename to bust cache */
+    background-image: url('../assets/images/odyssey_map_bg.webp') !important;
+    background-size: contain;
+    /* Changed to contain to ensure full map is seen if that was the issue */
     background-position: center;
     background-repeat: no-repeat;
     padding: 50px 20px;
     box-sizing: border-box;
+    /* Removing border/shadow if it clashes */
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 10px 30px rgba(0,0,0,0.5); */
     margin-top: 20px;
 }
 
