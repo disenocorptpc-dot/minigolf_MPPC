@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `
             <p>Pasó el tiempo, y aunque la heridas de Barbecue sanaron por fuera, su alma siguió rota por la ausencia de Barbaján. El cansancio y los años hicieron de lo suyo pero antes de morir, le hizo a Tilin una petición: "Encuentra a mi hermano... o a ese aventurero de buen corazón que merezca este tesoro".</p>
             <p>Tilin, ignorando cual fue destino final de Barbaján, partió con el mapa en su poder. Así comenzó la travesía buscando a quienes escucharían su llamado, para superar cada prueba y demostrar que eran dignos no solo del oro, sino del vínculo que unió a dos hermanos hasta el fin.</p>
-            <div style="text-align:center; margin-top:30px; font-size: 2rem;">☠️ 🦜 ☠️</div>
+            <div style="text-align:center; margin-top:30px; font-size: 2rem;"></div>
         `
     ];
     let currentHomePage = 0;

@@ -225,14 +225,21 @@ body {
     line-height: 1.2;
 }
 
+
 .story-content p {
-    font-size: 1.3rem;
-    /* Slightly reduced to prevent overflow */
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    /* Increase size */
+    line-height: 1.4;
+    /* Tighter line height for readability */
+    margin-bottom: 25px;
     text-align: justify;
     text-indent: 0;
-    font-weight: 500;
+    font-weight: 700;
+    /* Much Bolder (Bold uses 700 usually, 'Cormorant Garamond' handles it well) */
+    /* Add slight text shadow for contrast against parchment */
+    text-shadow: 0 0 1px rgba(62, 39, 35, 0.5);
+    color: #4e342e;
+    /* Dark wood color for better visibility */
 }
 
 
