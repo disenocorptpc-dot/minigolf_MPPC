@@ -601,8 +601,8 @@ body {
 
 /* Specific Resource Section Layout Override */
 /* RESOURCE SECTION OVERRIDES to prevent squashing */
-#resources-section.with-character,
-#resources-section {
+/* Only show layout if ACTIVE, otherwise it overrides hidden class */
+#resources-section.active-section {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
