@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "barbajan",
             name: "Barbaján",
             role: "El Guerrero",
-            image: "assets/images/barbajan.webp",
+            image: "assets/images/barbecue.webp",
             story: `
                 <h3>Barbaján</h3>
                 <p>El menor de los dos hermanos, un pirata valiente y de gran corazón.</p>
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: "barbecue",
             name: "Barbecue",
             role: "El Guardián Eterno",
-            image: "assets/images/barbecue.webp",
+            image: "assets/images/barbajan.webp",
             story: `
                 <h3>Barbecue</h3>
                 <p>Pirata valiente y amante de la aventura.</p>
@@ -172,10 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
             activeCharDisplay.classList.remove('char-barbajan', 'char-barbecue', 'char-jacky', 'char-tilin');
         }
 
+        const pagControls = document.querySelector('.story-pagination');
+
         if (storyContent && storySection) {
             // HIDE TILIN OVERLAY
             const tilinOverlay = document.getElementById('tilin-overlay');
             if (tilinOverlay) tilinOverlay.style.display = 'none';
+
+            // Hide Home Pagination
+            if (pagControls) pagControls.style.display = 'none';
 
             // Update content logic for Detail View with "returnToCharacters()"
             storyContent.innerHTML = char.story + '<button onclick="returnToCharacters()" style="display:block; margin: 30px auto; padding: 10px 20px; cursor:pointer; background:var(--color-wax-red); color:white; border:none; border-radius:4px; font-size:1.2rem;">Volver</button>';
