@@ -173,6 +173,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const activeCharImg = document.getElementById('active-char-img');
         const sections = document.querySelectorAll('.content-area section');
 
+
+        // RESET Active Character Classes to prevent bleed-over
+        if (activeCharDisplay) {
+            activeCharDisplay.classList.remove('char-barbajan', 'char-barbecue', 'char-jacky', 'char-tilin');
+        }
+
         if (storyContent && storySection) {
             // HIDE TILIN OVERLAY
             const tilinOverlay = document.getElementById('tilin-overlay');
@@ -186,6 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 activeCharImg.src = char.image;
                 activeCharDisplay.classList.remove('hidden-character-display');
                 activeCharDisplay.classList.add('active-character-visible');
+
+                // Add specific class for per-character styling (Barbajan fix)
+                if (char.id) {
+                    activeCharDisplay.classList.add(`char-${char.id}`);
+                }
+
                 // Shift book to right
                 storySection.classList.add('with-character');
             }
@@ -231,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.resetStory = () => {
+
         // Reset Logic
         const storyContent = document.getElementById('dynamic-story-content');
 
@@ -245,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hide Character Image
         if (activeCharDisplay) {
-            activeCharDisplay.classList.remove('active-character-visible');
+            activeCharDisplay.classList.remove('active-character-visible', 'char-barbajan', 'char-barbecue', 'char-jacky', 'char-tilin');
             activeCharDisplay.classList.add('hidden-character-display');
         }
 
@@ -256,17 +269,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         storyContent.innerHTML = `
             <h2>El Botín de los 100 Años</h2>
-            <h3>La Promesa</h3>
-            <p>El Botín de los Cien Años es real... Dos hermanos, Barbaján y Barbecue, juraron encontrar el tesoro más grande jamás visto. Pero el mar guarda secretos oscuros.</p>
-            <h3>Los Peligros del Mar</h3>
-            <p>Tilin nos advirtió: "La belleza es como un amanecer, pero lleva a la perdición." Sirenas encantadoras y el temible Kraken aguardaban en las profundidades, custodiando el camino.</p>
-            <h3>El Naufragio</h3>
-            <p>Llegada al destino: Aquí está su barco y el tesoro está dentro. El viaje ha terminado.</p>
-            <p>Tras una feroz batalla contra el Kraken, el barco sucumbió. Barbaján no pudo sobrevivir, y Barbecue, en su espera eterna, también falleció.</p> 
-            <p>Inspirado por su promesa, he encontrado en ti un nuevo compañero digno de llevarse este tesoro: el valor de la amistad.</p>
-            <h3>Epílogo</h3>
-            <p>El Botín de los Cien Años es real, sí... Pero también es la fuerza que unió a dos hermanos hasta el último aliento. Hoy, por fin, se cumple la promesa.</p>
-            <p>Y si has llegado hasta aquí, quizás tú también lo entiendas: la verdadera riqueza es la amistad que ni el tiempo ni la muerte pueden borrar.</p>
+            <p>Había una vez, en un lejano océano, dos hermanos piratas: Barbaján y Barbecue.</p>
+            <p>Unidos por la sangre y la aventura, navegaron juntos por años en busca de los misterios del mar. La leyenda que más los obsesionaba era la del tesoro perdido de Jacky, la Cazadora de Tesoros, quien había escondido su botín más preciado hacía más de un siglo. Se decía que ese tesoro, conocido como el Botín de los Cien Años, había sido alimentado por los restos de quienes morían al buscarlo.</p>
+            <p>Un tesoro tan real como letal.</p>
+            <p>Un día, los hermanos encontraron una pista que los trajo hasta esta isla remota. En su travesía, enfrentaron tormentas, sirenas, bestias marinas y peligros indescriptibles. Sin embargo, el mayor desafío fue el encuentro con el temido Kraken.</p>
+            <p>Barbaján, el menor, decidió quedarse a luchar contra la criatura para darle tiempo a su hermano de seguir su búsqueda, ya estaban demasiado cerca no podían fallar.</p>
+            <p>Barbecue, el mayor, herido y con el corazón roto, juró encontrar el tesoro y esperar a que llegara su hermano a su encuentro. En el difícil camino, conoció a Tilin, un loro sabio del Santuario de los Loros, donde Barbecue encontró refugio. Tilín lo cuidó y se convirtió en su fiel compañero.</p>
+            <p>Pasó el tiempo, y aunque la heridas de Barbecue sanaron por fuera, su alma siguió rota por la ausencia de Barbaján. El cansancio y los años hicieron de lo suyo pero antes de morir, le hizo a Tilin una petición: "Encuentra a mi hermano... o a ese aventurero de buen corazón que merezca este tesoro".</p>
+            <p>Tilin, ignorando cual fue destino final de Barbaján, partió con el mapa en su poder. Así comenzó la travesía buscando a quienes escucharían su llamado, para superar cada prueba y demostrar que eran dignos no solo del oro, sino del vínculo que unió a dos hermanos hasta el fin.</p>
             <div style="text-align:center; margin-top:30px; font-size: 2rem;">☠️ 🦜 ☠️</div>
         `;
 
