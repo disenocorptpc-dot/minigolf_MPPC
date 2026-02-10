@@ -646,6 +646,16 @@ body {
 }
 
 
+/* Map Heading */
+.map-heading {
+    font-family: var(--font-heading);
+    color: var(--color-wax-red);
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 /* Map Grid Styles */
 .map-grid {
     display: grid;
