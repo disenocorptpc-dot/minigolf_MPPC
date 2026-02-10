@@ -263,19 +263,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = document.getElementById('prev-page-btn');
         const nextBtn = document.getElementById('next-page-btn');
         const indicator = document.getElementById('page-indicator');
+
         const pagControls = document.querySelector('.story-pagination');
 
         if (!storyContent) return;
 
-        storyContent.innerHTML = homeStoryPages[index];
+        storyContent.innerHTML = homeStoryPages[index].replace(/\s+/g, ' '); // Clean excessive whitespace
 
         // Update Controls
         if (indicator) indicator.textContent = `${index + 1} / ${homeStoryPages.length}`;
         if (prevBtn) prevBtn.style.visibility = index > 0 ? 'visible' : 'hidden';
         if (nextBtn) nextBtn.style.visibility = index < homeStoryPages.length - 1 ? 'visible' : 'hidden';
 
-        // Show pagination controls container
-        if (pagControls) pagControls.style.display = 'flex';
+        // Show pagination controls container explicitly
+        if (pagControls) {
+            pagControls.style.display = 'flex';
+            pagControls.style.justifyContent = 'space-between';
+            pagControls.style.alignItems = 'center';
+        }
     };
 
     const prevBtn = document.getElementById('prev-page-btn');
