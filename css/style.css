@@ -601,20 +601,38 @@ body {
 
 /* Specific Resource Section Layout Override */
 /* RESOURCE SECTION OVERRIDES to prevent squashing */
-#resources-section.with-character .story-container {
-    width: 90% !important;
-    /* Force full width, do not shrink to 60% */
-    margin: 0px !important;
-    /* Reset automatic margins */
-    transition: none;
+#resources-section.with-character,
+#resources-section {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
+#resources-section .story-container {
+    width: 900px !important;
+    /* Force explicit width like home */
+    max-width: 90% !important;
+    height: 750px !important;
+    /* Force explicit height like home */
+    max-height: 80vh !important;
+    margin: 0 auto !important;
+    /* Force center margin */
+    transform: none !important;
+    /* Remove any transform shifts */
+    flex-grow: 0 !important;
+    /* Do not grow */
+    flex-basis: auto !important;
+}
+
+/* Ensure content inside resources respects the padding */
 #resources-section .story-content {
     padding-left: 200px !important;
-    /* Increase left padding to avoid the chest */
-    padding-top: 40px;
-    align-items: center;
-    /* Center content vertically if needed */
+    /* Space for chest */
+    padding-top: 60px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .active-section {
