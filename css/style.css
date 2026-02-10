@@ -240,12 +240,21 @@ body {
     margin-bottom: 25px;
     text-align: justify;
     text-indent: 0;
-    font-weight: 700;
-    /* Much Bolder (Bold uses 700 usually, 'Cormorant Garamond' handles it well) */
-    /* Add slight text shadow for contrast against parchment */
-    text-shadow: 0 0 1px rgba(62, 39, 35, 0.5);
-    color: #4e342e;
-    /* Dark wood color for better visibility */
+    font-weight: 900;
+    /* Double shadow for extra thickness without blur */
+    text-shadow: 0 0 0px #4e342e, 0 0 1px #4e342e;
+    color: #2b1d18;
+    /* Darker ink */
+}
+
+.map-icon-name {
+    display: none;
+    /* Hide icon names to save space */
+}
+
+/* Hide map heading inside the story container to save space */
+.story-container.map-mode .map-heading {
+    display: none;
 }
 
 
@@ -635,25 +644,34 @@ body {
 
 /* Pagination Controls */
 .story-pagination {
-    display: flex;
+    display: flex !important;
+    /* FORCE DISPLAY */
+    width: 100%;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 2px solid var(--color-ink);
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 2px solid var(--color-ink);
+    position: relative;
+    z-index: 50;
+    /* Ensure on top */
+    min-height: 50px;
+    /* Ensure height */
+    background: transparent;
 }
 
 .story-pagination button {
-    background: var(--color-wax-red);
-    color: white;
-    border: none;
-    padding: 8px 16px;
+    background: var(--color-ink);
+    color: var(--color-parchment);
     font-family: var(--font-heading);
+    border: 2px solid var(--color-wood);
+    padding: 8px 16px;
     font-size: 1.2rem;
     cursor: pointer;
     border-radius: 4px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s;
+    visibility: visible;
+    /* Default */
 }
 
 .story-pagination span {
