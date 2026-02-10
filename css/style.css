@@ -91,20 +91,24 @@ body {
     display: none;
 }
 
+
 .active-character-visible {
     display: block;
     position: absolute;
     bottom: -50px;
-    left: 20px;
+    left: -40px;
+    /* Moved further left to prevent text overlap */
     z-index: 60;
     pointer-events: none;
-    max-width: 30%;
+    max-width: 35%;
+    /* Slightly larger allowance */
 }
 
 
 .active-character-visible img {
-    height: 60vh;
-    max-height: 600px;
+    height: 65vh;
+    /* Slightly larger presence */
+    max-height: 650px;
     width: auto;
     filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.6));
     transition: opacity 0.5s ease;
@@ -149,7 +153,11 @@ body {
     color: var(--color-ink);
     /* REMOVED SCROLL FROM CONTAINER */
     overflow-y: hidden;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    /* Use drop-shadow filter instead of box-shadow to respect image transparency */
+    /* box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); */
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
+    /* Make sure background color is transparent so drop-shadow works on image shape */
+    background-color: transparent;
 }
 
 /* NEW SCROLL WRAPPER STYLE */
@@ -233,7 +241,11 @@ body {
 .main-logo {
     max-width: 300px;
     height: auto;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+    /* Replaced golden glow with dark shadow and blend mode */
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.8));
+    /* Dark shadow */
+    mix-blend-mode: multiply;
+    /* Blends with parchment/map background */
     transition: transform 0.3s;
 }
 
