@@ -754,16 +754,52 @@ body {
     filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
 }
 
+/* Map Mode Styling for Story Container */
+.story-container.map-mode {
+    padding: 0px !important;
+    /* Reset padding, wrapper handles it */
+    overflow: visible !important;
+    /* Allow banner to stick out */
+}
+
 /* Map Grid Wrapper (The scrollable part) */
 .map-scroll-wrapper {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    /* PADDING INCREASED to make content smaller within book */
-    padding: 110px 100px 80px;
+    /* PADDING - Inner content spacing from book edges */
+    padding: 120px 80px 80px 80px;
     box-sizing: border-box;
-    /* Thematic Scrollbar removed custom thin width so it becomes thick */
+    /* Force margin to pull scrollbar inwards away from book edge */
+    margin: 20px 40px;
+    /* Adjust width to account for margin */
+    width: calc(100% - 80px);
+    height: calc(100% - 40px);
+
+    /* Enforce Scrollbar Styles specifically for this element */
     scrollbar-color: var(--color-wax-red) var(--color-wood);
+    scrollbar-width: auto !important;
+    /* Force thick scrollbar */
+}
+
+.map-scroll-wrapper::-webkit-scrollbar {
+    width: 25px !important;
+    /* Force thick width */
+    display: block !important;
+}
+
+.map-scroll-wrapper::-webkit-scrollbar-track {
+    background: #3e2723;
+    border-left: 2px solid #5d4037;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.map-scroll-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--color-wax-red);
+    border: 3px solid #ffb300;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .map-banner h2 {
