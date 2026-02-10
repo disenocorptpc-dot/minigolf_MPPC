@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             activeCharDisplay.classList.remove('char-barbajan', 'char-barbecue', 'char-jacky', 'char-tilin');
         }
 
+
         const pagControls = document.querySelector('.story-pagination');
 
         if (storyContent && storySection) {
@@ -179,8 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const tilinOverlay = document.getElementById('tilin-overlay');
             if (tilinOverlay) tilinOverlay.style.display = 'none';
 
-            // Hide Home Pagination
-            if (pagControls) pagControls.style.display = 'none';
+            // FORCE Hide Home Pagination
+            if (pagControls) {
+                pagControls.style.display = 'none';
+                pagControls.style.setProperty('display', 'none', 'important'); // Be extra sure
+            }
 
             // Update content logic for Detail View with "returnToCharacters()"
             storyContent.innerHTML = char.story + '<button onclick="returnToCharacters()" style="display:block; margin: 30px auto; padding: 10px 20px; cursor:pointer; background:var(--color-wax-red); color:white; border:none; border-radius:4px; font-size:1.2rem;">Volver</button>';
