@@ -95,12 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Barbaján",
             role: "El Guerrero",
             image: "assets/images/barbajan.webp",
-            // Reduced story text for fitting better
             story: `
-                <h3>Barbaján: La Espada del Destino</h3>
-                <p>El hermano mayor, legendario por su fuerza y lealtad. Juró proteger a Barbecue desde niño.</p>
-                <p>En su última batalla, se enfrentó solo al Kraken con su espada *Curo*, sacrificándose para salvar a su tripulación.</p>
-                <p>Su espíritu ahora protege estas costas.</p>
+                <h3>Barbaján</h3>
+                <p>El menor de los dos hermanos, un pirata valiente y de gran corazón.</p>
+                <p>Aventurero y generoso, eligió enfrentar solo al Kraken para salvar a su hermano y permitir que la historia continuara.</p>
             `
         },
         {
@@ -109,9 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
             role: "El Guardián Eterno",
             image: "assets/images/barbecue.webp",
             story: `
-                <h3>Barbecue: La Espera Eterna</h3>
-                <p>El estratega que nunca perdonó al mar. Construyó un refugio en el arrecife esperando a su hermano.</p>
-                <p>Con el tiempo, se convirtió en parte de la isla, custodiando el "Botín de los 100 años" hasta el regreso de Barbaján.</p>
+                <h3>Barbecue</h3>
+                <p>Pirata valiente y amante de la aventura.</p>
+                <p>Buscador incansable de grandes tesoros, descubrió que el Botín de los Cien Años le regalo algo aun más valioso que el oro: la amistad de Tilín y la hermandad eterna con Barbaján.</p>
             `
         },
         {
@@ -120,20 +118,20 @@ document.addEventListener('DOMContentLoaded', () => {
             role: "El Sabio",
             image: "assets/images/tilin.webp",
             story: `
-                <h3>Tilín: El Ojo que Todo lo Ve</h3>
-                <p>Más de 100 años de sabiduría plumífera. Consejero de los fundadores y guardián de secretos.</p>
-                <p>Advirtió sobre el Kraken, pero la ambición humana es sorda. Hoy vigila que la historia no se repita con nuevos aventureros.</p>
+                <h3>Tilín</h3>
+                <p>Loro sabio del Santuario de los Loros.</p>
+                <p>Amigo fiel de Barbecue y su voz de aliento, hoy guía esta aventura para cumplir la promesa de llevar al tesoro a quienes sean dignos de él.</p>
             `
         },
         {
             id: "jacky",
             name: "Jacky",
-            role: "El Espíritu Libre",
+            role: "La Cazadora",
             image: "assets/images/jacky.webp",
             story: `
-                <h3>Jacky: La Alegría del Caribe</h3>
-                <p>Mientras otros buscaban oro, ella buscaba la canción perfecta. Su risa encantaba hasta a las sirenas.</p>
-                <p>No busca tesoros, sino la próxima gran historia. ¿Serás tú parte de ella?</p>
+                <h3>Jacky, la Cazadora de Tesoros</h3>
+                <p>Legendaria pirata de hace un siglo.</p>
+                <p>Ruda, bella y astuta, escondió el Botín de los Cien Años, dejando su espíritu y valentía vivos en cada moneda e historia que ha quedado guardada en su tesoro.</p>
             `
         }
     ];

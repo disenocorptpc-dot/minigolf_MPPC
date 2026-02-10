@@ -170,23 +170,24 @@ body {
 }
 
 /* NEW SCROLL WRAPPER STYLE */
+
 .story-scroll-wrapper {
     width: 100%;
     height: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
+    /* Hide vertical scroll per user request */
     overflow-x: hidden;
     /* Force hide horizontal scroll */
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-gold) var(--color-wood);
-    /* Padding to keep text away from scrollbar and visually centered in "page" */
+    scrollbar-width: none;
+    /* Hide scrollbar for firefox */
     padding-right: 15px;
     box-sizing: border-box;
     /* IMPORTANT to prevent width+padding overflow */
 }
 
-/* Update scrollbar selectors to target the wrapper now */
+/* Hide scrollbar for Chrome/Safari */
 .story-scroll-wrapper::-webkit-scrollbar {
-    width: 12px;
+    display: none;
 }
 
 .story-scroll-wrapper::-webkit-scrollbar-track {
@@ -648,11 +649,12 @@ body {
 /* Map Grid Styles */
 .map-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* Force 4 columns */
+    /* Force 4 columns explicitly and ensure items are centered */
+    grid-template-columns: repeat(4, 1fr) !important;
     gap: 30px;
     justify-items: center;
     max-width: 900px;
+    width: 100%;
     margin: 0 auto;
 }
 
