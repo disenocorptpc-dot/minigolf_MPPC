@@ -323,11 +323,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>Un día, los hermanos encontraron una pista que los trajo hasta esta isla remota. En su travesía, enfrentaron tormentas, sirenas, bestias marinas y peligros indescriptibles. Sin embargo, el mayor desafío fue el encuentro con el temido Kraken.</p>
         `,
         `
-            <p>Barbaján, el menor, decidió quedarse a luchar contra la criatura para darle tiempo a su hermano de seguir su búsqueda, ya estaban demasiado cerca no podían fallar.</p>
-            <p>Barbecue, el mayor, herido y con el corazón roto, juró encontrar el tesoro y esperar a que llegara su hermano a su encuentro.</p>
+            <p>Barbecue, el mayor, decidió quedarse a luchar contra la criatura para darle tiempo a su hermano de seguir su búsqueda, ya estaban demasiado cerca no podían fallar.</p>
+            <p>Barbaján, el menor, herido y con el corazón roto, juró encontrar el tesoro y esperar a que llegara su hermano a su encuentro.</p>
         `,
         `
-            <p>En el difícil camino, conoció a Tilín, un loro sabio del Santuario de los Loros, donde Barbecue encontró refugio. Pasó el tiempo, y aunque la heridas de Barbecue sanaron por fuera, su alma siguió rota por la ausencia de Barbaján.</p>
+            <p>En el difícil camino, conoció a Tilín, un loro sabio del Santuario de los Loros, donde Barbaján encontró refugio. Pasó el tiempo, y aunque la heridas de Barbaján sanaron por fuera, su alma siguió rota por la ausencia de Barbecue.</p>
             <p>Antes de morir, le hizo a Tilín una petición: "Encuentra a mi hermano... o a ese aventurero de buen corazón que merezca este tesoro".</p>
             <div style="text-align:center; margin-top:30px;">
                 <button onclick="resetStory()" style="padding: 10px 20px; font-family: var(--font-heading); background: var(--color-wax-red); color: white; border: 2px solid var(--color-wood); border-radius: 5px; cursor: pointer; font-size: 1.2rem;">Volver al Inicio</button>
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  <h3>Ambiente:</h3>
                 <p>Un refugio de aves sabias y voces antiguas.<br>Aquí se recuperan fuerzas.</p>
                  <h3>Tilín:</h3>
-                <p>Aquí conocí y salvé a Barbecue, el gran pirata<br>La amistad también es un gran tesoro.</p>
+                <p>Aquí conocí a Barbaján, el valiente superviviente.<br>La amistad también es un gran tesoro.</p>
             `,
             image: "assets/images/map_icons/04_Templo_loros.webp"
         },
