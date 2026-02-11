@@ -1031,3 +1031,213 @@ body {
     left: -20px;
     z-index: 60;
 }
+/* =========================================
+   MOBILE / RESPONSIVE OVERRIDES
+   (Touching ONLY screens smaller than 1024px)
+   ========================================= */
+@media (max-width: 1024px) {
+
+    body {
+        height: auto;
+        min-height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .app-container {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 50px;
+        overflow-y: visible;
+        display: block;
+    }
+
+    /* --- NAVIGATION --- */
+    .main-header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .logo-container {
+        width: 100%;
+        order: -1;
+        margin-bottom: 5px;
+        margin-top: 0;
+        height: auto;
+    }
+
+    .main-logo {
+        max-width: 150px;
+    }
+
+    .nav-ribbon {
+        width: 120px;
+        height: 50px;
+        font-size: 1rem;
+        background-size: 100% 100%;
+        margin: 2px;
+        display: flex !important;
+    }
+
+    /* --- BOOK CONTAINER --- */
+    .content-area,
+    .book-flex-wrapper {
+        height: auto;
+        min-height: 60vh;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .story-container,
+    #resources-section .story-container {
+        width: 95% !important;
+        height: auto !important;
+        min-height: 70vh !important;
+        max-height: none !important;
+        margin: 0 auto !important;
+        padding: 60px 20px !important;
+        background-size: 100% 100%;
+        overflow-y: auto !important;
+    }
+
+    /* --- TYPOGRAPHY --- */
+    .story-content h2,
+    .map-banner h2,
+    #resources-section h2 {
+        font-size: 2rem !important;
+        margin-bottom: 15px;
+        line-height: 1.1;
+    }
+
+    .story-content p {
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+
+    /* --- CHARACTERS --- */
+    #characters-section {
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+
+    .character-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 50px;
+    }
+
+    .character-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .character-card img {
+        height: 250px;
+    }
+
+    /* --- MAP --- */
+    .map-banner {
+        width: 90%;
+        height: 80px;
+        top: 10px;
+    }
+
+    .map-banner h2 {
+        font-size: 1.5rem !important;
+        margin-top: -5px;
+    }
+
+    .story-container.map-mode {
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .map-scroll-wrapper {
+        padding: 90px 20px 20px !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .map-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    .map-icon-container {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    /* --- RESOURCES --- */
+    #resources-section .story-content {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 40px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start !important;
+    }
+
+    .resource-item {
+        width: 100% !important;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .resource-item div {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        align-items: center;
+        gap: 10px !important;
+    }
+    
+    .resource-item div[style*='display: grid'] {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .resource-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        font-size: 1rem !important;
+    }
+    
+    .resource-item span {
+        font-size: 1.5rem !important;
+    }
+
+    /* --- OVERLAYS & EXTRAS --- */
+    .active-character-visible {
+        display: none !important;
+    }
+
+    #tilin-overlay {
+        width: 80px;
+        bottom: 5px;
+        left: 5px; 
+    }
+
+    #tilin-overlay img {
+        height: 100px;
+        margin: 0;
+    }
+
+    /* Pagination */
+    .story-pagination {
+        margin-top: 20px;
+        padding-top: 10px;
+        flex-wrap: wrap; 
+        gap: 5px;
+    }
+    
+    .story-pagination button {
+        padding: 5px 10px;
+        font-size: 1rem;
+    }
+}
+
