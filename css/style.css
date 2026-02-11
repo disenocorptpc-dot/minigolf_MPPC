@@ -1123,6 +1123,8 @@ body {
     font-weight: 900;
     margin-bottom: 20px;
     /* Space before button */
+    box-sizing: border-box;
+    /* Fixes clipping issue by including padding in width */
 }
 
 /* Custom Scrollbar for Parchment - MATCHING THEME */
