@@ -613,14 +613,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- INTRO POPUP LOGIC ---
-    // --- INTRO POPUP LOGIC ---
     const introLetterContent = `
         <p><strong>Mi querido hermano Barbecue,</strong></p>
-        <p>Si esta carta ha llegado a tus manos, es porque el mar aún cree en nosotros.</p> 
-        <p>Me encuentro encallado entre rocas traicioneras, pero sé que tú, forjado por tormentas y batallas, sabrás encontrarme. O al menos, eso quiero creer.</p>
-        <p>Tu sacrificio ante el Kraken no fue en vano. Logré escapar y descubrí aquello que siempre nos llamó: el Botín de los Cien Años, el tesoro más temido y codiciado de los siete mares.</p>
-        <p>He marcado el camino de regreso. Sigue el mapa que llevará mi amigo Tilín.</p>
-        <p>Esta es mi bitácora. Esta es nuestra historia.</p>
+        
+        <p>Si esta carta ha llegado a tus manos, es porque el mar aún cree en nosotros. Me encuentro encallado entre rocas traicioneras, pero sé que tú, forjado por tormentas y batallas, sabrás encontrarme.</p>
+
+        <p>La lucha fue feroz… y valió la pena. Al escapar de la muerte descubrí aquello que siempre nos llamó: el Botín de los Cien Años, el tesoro más temido y codiciado de los siete mares, legado de Jacky, la Cazadora de Tesoros. No es solo oro lo que guarda, sino el destino de quienes lo buscaron durante un siglo.</p>
+
+        <p>He marcado el camino. Sigue el mapa que llevará mi amigo Tilín. Confía en él, pero mantente alerta: criaturas, engaños y mares furiosos pondrán a prueba tu valor.</p>
+
+        <p>Si el coraje no te abandona, nos encontraremos al final del viaje.</p>
+
         <p style="text-align:right;"><strong>Tu hermano, Barbaján</strong></p>
     `;
 
