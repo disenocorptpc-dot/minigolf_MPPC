@@ -1121,6 +1121,8 @@ body {
     /* Tighter line height */
     color: var(--color-ink);
     font-weight: 900;
+    /* Simulate extra boldness since font max weight is 700 */
+    text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor, 0 0.5px 0 currentColor;
     margin-bottom: 20px;
     /* Space before button */
     box-sizing: border-box;
