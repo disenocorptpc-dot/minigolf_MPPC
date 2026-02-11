@@ -131,6 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetSection) {
                 targetSection.classList.remove('hidden-section');
                 targetSection.classList.add('active-section');
+
+                // Force reset scrolls AFTER the section is visible
+                // This is critical because you cannot scroll hidden elements
+                resetScrolls();
+                setTimeout(resetScrolls, 50); // Double tap for safety
             }
         });
     });
@@ -212,6 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to show specific character story in the main scroll view
     window.showCharacterStory = (char) => {
+        resetScrolls();
+        setTimeout(resetScrolls, 10);
         const storyContent = document.getElementById('dynamic-story-content');
         const storySection = document.getElementById('story-section');
 
@@ -270,6 +277,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     window.returnToCharacters = () => {
+        resetScrolls();
+        setTimeout(resetScrolls, 10);
         const activeCharDisplay = document.getElementById('active-character-display');
         const storySection = document.getElementById('story-section');
         const charsSection = document.getElementById('characters-section');
@@ -499,6 +508,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.showMapDetail = (item) => {
+        resetScrolls();
+        setTimeout(resetScrolls, 10);
         const storyContent = document.getElementById('dynamic-story-content');
         const storySection = document.getElementById('story-section');
         const activeCharDisplay = document.getElementById('active-character-display');
@@ -545,6 +556,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.returnToMap = () => {
+        resetScrolls();
+        setTimeout(resetScrolls, 10);
         const activeCharDisplay = document.getElementById('active-character-display');
         const storySection = document.getElementById('story-section');
         const mapSection = document.getElementById('map-section');
