@@ -153,23 +153,23 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: "barbecue",
             name: "Barbecue",
-            role: "El Guardián Eterno",
+            role: "El Hermano Mayor",
             image: "assets/images/barbajan.webp",
             story: `
                 <h3>Barbecue</h3>
-                <p>Pirata valiente y amante de la aventura.</p>
-                <p>Buscador incansable de grandes tesoros, descubrió que el Botín de los Cien Años le regalo algo aun más valioso que el oro: la amistad de Tilín y la hermandad eterna con Barbaján.</p>
+                <p>El hermano mayor, un pirata valiente y de gran corazón.</p>
+                <p>Aventurero y protector, eligió enfrentar solo al Kraken para salvar a su hermano menor y permitir que la historia continuara.</p>
             `
         },
         {
             id: "barbajan",
             name: "Barbaján",
-            role: "El Guerrero",
+            role: "El Hermano Menor",
             image: "assets/images/barbecue.webp",
             story: `
                 <h3>Barbaján</h3>
-                <p>El menor de los dos hermanos, un pirata valiente y de gran corazón.</p>
-                <p>Aventurero y generoso, eligió enfrentar solo al Kraken para salvar a su hermano y permitir que la historia continuara.</p>
+                <p>El menor de los dos hermanos, heredero de la búsqueda.</p>
+                <p>Tras escapar del naufragio, descubrió que el Botín de los Cien Años le regaló algo aún más valioso que el oro: la fuerza para seguir adelante y la hermandad eterna.</p>
             `
         },
         {
@@ -392,19 +392,10 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Isla de los Cocos",
             content: `
                 <h3>Ambiente:</h3>
-                <p>Has llegado a la Isla de los Cocos. Aquí comienza la búsqueda del Botín de los Cien Años con mapa, la carta del Pirata Barbecue y un fabuloso guía</p>
+                <p>Has llegado a la Isla de los Cocos. Aquí comienza la búsqueda del Botín de los Cien Años con mapa, la carta de Barbaján y un fabuloso guía.</p>
                 
-                <div class="letter" style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 5px; margin: 15px 0; font-style: italic; border: 1px dashed var(--color-ink);">
-                    <p><strong>Mi querido hermano Barbaján,</strong></p>
-                    <p>Si esta carta ha llegado a tus manos, es porque el mar aún cree en nosotros. Me encuentro encallado entre rocas traicioneras, pero sé que tú, forjado por tormentas y batallas, sabrás encontrarme.</p>
-                    <p>La lucha fue feroz… y valió la pena. Al escapar de la muerte descubrí aquello que siempre nos llamó: el Botín de los Cien Años, el tesoro más temido y codiciado de los siete mares, legado de Jacky, la Cazadora de Tesoros. No es solo oro lo que guarda, sino el destino de quienes lo buscaron durante un siglo.</p>
-                    <p>He marcado el camino. Sigue el mapa que llevará mi amigo Tilín. Confía en él, pero mantente alerta: criaturas, engaños y mares furiosos pondrán a prueba tu valor.</p>
-                    <p>Si el coraje no te abandona, nos encontraremos al final del viaje.</p>
-                    <p style="text-align:right;"><strong>Tu hermano, Barbecue</strong></p>
-                </div>
-
                 <h3>Tilín:</h3>
-                <p>¡Hola! Soy Tilín, guía y consejero de Barbecue. <br>Sígueme… solo los valientes llegan al tesoro.</p>
+                <p>¡Hola! Soy Tilín, guía y consejero de la familia. <br>Sígueme… solo los valientes llegan al tesoro.</p>
             `,
             image: "assets/images/map_icons/01_la_carta_en_la_botella.webp"
         },
@@ -426,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  <h3>Advertencia:</h3>
                 <p>Una bestia colosal emerge del mar.<br>Si el miedo te detiene, no avanzarás.</p>
                  <h3>Tilín:</h3>
-                <p>Aquí Barbaján se quedó a luchar.<br>El coraje abre el camino, no lo olvides.</p>
+                <p>Aquí Barbecue se quedó a luchar.<br>El coraje abre el camino, no lo olvides.</p>
             `,
             image: "assets/images/map_icons/03_Ataque_Kraken.webp"
         },
@@ -589,34 +580,79 @@ document.addEventListener('DOMContentLoaded', () => {
         const tilinOverlay = document.getElementById('tilin-overlay');
         const activeCharDisplay = document.getElementById('active-character-display');
 
-        // Show Tilin
-        if (tilinOverlay) tilinOverlay.style.display = 'block';
-
-        // Reset Display logic
-        if (activeCharDisplay) {
-            activeCharDisplay.classList.remove('active-character-visible', 'char-barbajan', 'char-barbecue', 'char-jacky', 'char-tilin', 'map-detail-active');
-            activeCharDisplay.classList.add('hidden-character-display');
-        }
-        if (storySection) {
-            storySection.classList.remove('with-character');
-        }
-
-        // Switch to Story Section
-        sections.forEach(sec => {
-            sec.classList.add('hidden-section');
-            sec.classList.remove('active-section');
-        });
+        // Reset Story View
         if (storySection) {
             storySection.classList.remove('hidden-section');
             storySection.classList.add('active-section');
+            storySection.classList.remove('with-character');
         }
 
-        // Initialize Page 0
-        currentHomePage = 0;
-        renderHomePage(0);
+        // Hide others
+        sections.forEach(sec => {
+            if (sec.id !== 'story-section') {
+                sec.classList.add('hidden-section');
+                sec.classList.remove('active-section');
+            }
+        });
+
+        // Show Tilin
+        if (tilinOverlay) tilinOverlay.style.display = 'block';
+
+        // Hide Active Char
+        if (activeCharDisplay) {
+            activeCharDisplay.classList.remove('active-character-visible');
+            activeCharDisplay.classList.add('hidden-character-display');
+        }
+
+        // Reset Pagination
+        currentStoryPage = 0;
+        updateStoryPage();
     };
 
-    // Initialize Home on Load
-    window.resetStory();
 
+    // --- INTRO POPUP LOGIC ---
+    const introLetterContent = `
+        <div class="letter" style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 5px; margin: 15px 0; font-style: italic; border: 1px dashed var(--color-ink); text-align: left;">
+            <p><strong>Mi querido hermano Barbecue,</strong></p>
+            <p>Si esta carta ha llegado a tus manos, es porque el mar aún cree en nosotros.</p> 
+            <p>Me encuentro encallado entre rocas traicioneras, pero sé que tú, forjado por tormentas y batallas, sabrás encontrarme. O al menos, eso quiero creer.</p>
+            <p>Tu sacrificio ante el Kraken no fue en vano. Logré escapar y descubrí aquello que siempre nos llamó: el Botín de los Cien Años, el tesoro más temido y codiciado de los siete mares.</p>
+            <p>He marcado el camino de regreso. Sigue el mapa que llevará mi amigo Tilín.</p>
+            <p>Esta es mi bitácora. Esta es nuestra historia.</p>
+            <p style="text-align:right;"><strong>Tu hermano, Barbaján</strong></p>
+        </div>
+    `;
+
+    const initIntroPopup = () => {
+        const popup = document.getElementById('intro-popup');
+        const contentBox = document.getElementById('intro-text');
+        const closeBtn = document.getElementById('close-intro-btn');
+        const mapRibbon = document.querySelector('.nav-ribbon[data-target="map"]');
+
+        // Populate text
+        if (contentBox) {
+            contentBox.innerHTML = introLetterContent;
+        }
+
+        // Close Action
+        if (popup) {
+            // Function to close and navigate
+            const startAdventure = () => {
+                popup.style.display = 'none'; // Simple hide
+                // Navigate to Map (Capítulos) -> Default as requested
+                if (mapRibbon) {
+                    mapRibbon.click();
+                }
+            };
+
+            if (closeBtn) closeBtn.addEventListener('click', startAdventure);
+        }
+    };
+
+    // Initialize
+    // Initialize
+    document.addEventListener('DOMContentLoaded', initIntroPopup);
+
+    // Initialize Home on Load (behind popup)
+    window.resetStory();
 });

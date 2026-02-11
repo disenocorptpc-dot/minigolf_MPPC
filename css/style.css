@@ -1031,6 +1031,138 @@ body {
     left: -20px;
     z-index: 60;
 }
+
+/* =========================================
+   INTRO POPUP (PARCHMENT)
+   ========================================= */
+.intro-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    /* Dark overlay */
+    z-index: 9999;
+    /* Topmost */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transition: opacity 0.5s ease; */
+}
+
+.intro-popup.hidden {
+    display: none !important;
+}
+
+.pergamino-container {
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;
+    max-height: 800px;
+    background-image: url('../assets/images/pergamino.webp');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+    /* Adjust based on parchment image margins */
+    box-sizing: border-box;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
+}
+
+.pergamino-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    /* Scroll inside text area */
+    justify-content: space-between;
+    /* Space out elements */
+}
+
+.pergamino-content h2 {
+    font-family: var(--font-heading);
+    color: var(--color-wax-red);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-ink);
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.scrollable-text {
+    flex-grow: 1;
+    width: 100%;
+    overflow-y: auto;
+    padding-right: 15px;
+    /* Space for scrollbar */
+    text-align: justify;
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--color-ink);
+    font-weight: 700;
+}
+
+/* Custom Scrollbar for Parchment */
+.scrollable-text::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scrollable-text::-webkit-scrollbar-track {
+    background: rgba(62, 39, 35, 0.1);
+    border-radius: 5px;
+}
+
+.scrollable-text::-webkit-scrollbar-thumb {
+    background: var(--color-wood);
+    border-radius: 5px;
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    background: var(--color-wax-red);
+    color: var(--color-parchment);
+    border: 2px solid var(--color-gold);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn:hover {
+    transform: scale(1.05);
+    background: #a02020;
+}
+
+/* Mobile Adjustments for Popup */
+@media (max-width: 768px) {
+    .pergamino-container {
+        padding: 50px 30px;
+        /* Tighter padding for mobile parchment */
+        background-size: 100% 100%;
+    }
+
+    .pergamino-content h2 {
+        font-size: 2rem;
+    }
+
+    .scrollable-text {
+        font-size: 1.1rem;
+    }
+}
+
 /* =========================================
    MOBILE / RESPONSIVE OVERRIDES
    (Touching ONLY screens smaller than 1024px)
@@ -1165,7 +1297,7 @@ body {
         grid-template-columns: 1fr !important;
         gap: 20px;
     }
-    
+
     .map-icon-container {
         width: 100%;
         max-width: 250px;
@@ -1194,7 +1326,7 @@ body {
         align-items: center;
         gap: 10px !important;
     }
-    
+
     .resource-item div[style*='display: grid'] {
         display: flex !important;
         flex-direction: column !important;
@@ -1206,7 +1338,7 @@ body {
         padding: 10px;
         font-size: 1rem !important;
     }
-    
+
     .resource-item span {
         font-size: 1.5rem !important;
     }
@@ -1219,7 +1351,7 @@ body {
     #tilin-overlay {
         width: 80px;
         bottom: 5px;
-        left: 5px; 
+        left: 5px;
     }
 
     #tilin-overlay img {
@@ -1231,13 +1363,12 @@ body {
     .story-pagination {
         margin-top: 20px;
         padding-top: 10px;
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
         gap: 5px;
     }
-    
+
     .story-pagination button {
         padding: 5px 10px;
         font-size: 1rem;
     }
 }
-

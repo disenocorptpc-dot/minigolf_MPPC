@@ -40,19 +40,29 @@
 
 
         <!-- Navigation Header -->
-
-        <!-- Navigation Header -->
         <header class="main-header">
-            <div class="nav-ribbon" data-target="home">Home</div>
-            <div class="nav-ribbon" data-target="characters">Personajes</div>
+            <!-- Navigation Ribbons (Reordered) -->
+            <div class="nav-ribbon" data-target="map">Capítulos</div>
+            <div class="nav-ribbon" data-target="home">Historia</div>
             <div class="logo-container">
                 <img src="assets/images/logo.webp" alt="Minigolf Punta Cana" class="main-logo">
             </div>
-            <!-- Separados Mapa y Recursos, sin spacer ya que ahora son 2 a la izquierda, 2 a la derecha -->
-            <div class="nav-ribbon" data-target="map">Mapa</div>
+            <div class="nav-ribbon" data-target="characters">Personajes</div>
             <div class="nav-ribbon" data-target="resources">Recursos</div>
         </header>
 
+        <!-- Intro Popup (Pergamino) -->
+        <div id="intro-popup" class="intro-popup" style="display:flex;">
+            <div class="pergamino-container">
+                <div class="pergamino-content">
+                    <h2>Bitácora de Barbaján</h2>
+                    <div class="scrollable-text" id="intro-text">
+                        <!-- Text inserted by JS -->
+                    </div>
+                    <button id="close-intro-btn" class="close-btn">Comenzar Aventura</button>
+                </div>
+            </div>
+        </div>
 
 
         <!-- Center Content Area -->
