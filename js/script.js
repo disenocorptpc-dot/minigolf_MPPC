@@ -605,8 +605,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Reset Pagination
-        currentStoryPage = 0;
-        updateStoryPage();
+        currentHomePage = 0;
+        if (typeof renderHomePage === 'function') {
+            renderHomePage(0);
+        }
     };
 
 
@@ -650,8 +652,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Initialize
-    // Initialize
-    document.addEventListener('DOMContentLoaded', initIntroPopup);
+    // Initialize Intro Popup directly (we are already in DOMContentLoaded)
+    initIntroPopup();
 
     // Initialize Home on Load (behind popup)
     window.resetStory();
