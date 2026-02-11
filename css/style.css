@@ -1171,17 +1171,28 @@ body {
 /* Mobile Adjustments for Popup */
 @media (max-width: 768px) {
     .pergamino-container {
-        padding: 50px 30px;
-        /* Tighter padding for mobile parchment */
+        width: 95vw !important;
+        height: 80vh !important;
+        padding: 60px 40px !important;
+        /* Tighter padding for mobile, but enough to avoid edges */
         background-size: 100% 100%;
     }
 
     .pergamino-content h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        /* Smaller title */
+        margin-bottom: 15px;
     }
 
     .scrollable-text {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        /* Readable text size */
+        padding-right: 10px;
+    }
+
+    .close-btn {
+        padding: 8px 20px;
+        font-size: 1.2rem;
     }
 }
 
