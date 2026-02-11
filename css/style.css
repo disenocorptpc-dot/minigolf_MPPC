@@ -1055,19 +1055,15 @@ body {
     display: none !important;
 }
 
+
 .pergamino-container {
     width: 650px;
-    /* Fixed width to match parchment aspect ratio better */
     height: 850px;
-    /* Fixed height */
     max-width: 95vw;
     max-height: 90vh;
     background-image: url('../assets/images/pergamino.webp');
     background-size: 100% 100%;
-    /* Keep stretch but fix dimensions to match ratio? User said deformed. Contain is safer but might leave gaps. */
-    /* actually, if I fix the container ratio, 100% 100% looks fine. */
-    /* Let's try CONTAIN to be safe and center it. */
-    background-size: contain;
+    /* Stretch to fill container, relying on fixed size for ratio */
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
@@ -1076,7 +1072,7 @@ body {
     align-items: center;
     justify-content: center;
     /* Adjusted padding to fit content INSIDE the parchment visual "safe area" */
-    padding: 180px 110px 120px 110px;
+    padding: 130px 100px 100px 100px;
     box-sizing: border-box;
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
 }
@@ -1089,48 +1085,57 @@ body {
     align-items: center;
     text-align: center;
     overflow: hidden;
-    /* Scroll inside text area */
     justify-content: space-between;
-    /* Space out elements */
 }
 
 .pergamino-content h2 {
     font-family: var(--font-heading);
     color: var(--color-wax-red);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--color-ink);
-    padding-bottom: 10px;
+    font-size: 3rem;
+    /* Larger Title */
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--color-ink);
+    /* Thicker border */
+    padding-bottom: 15px;
     width: 100%;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .scrollable-text {
     flex-grow: 1;
     width: 100%;
     overflow-y: auto;
-    padding-right: 15px;
-    /* Space for scrollbar */
+    padding-right: 20px;
+    /* More space */
     text-align: justify;
     font-family: var(--font-body);
-    font-size: 1.3rem;
-    line-height: 1.5;
+    font-size: 1.6rem;
+    /* Larger Text */
+    line-height: 1.6;
     color: var(--color-ink);
-    font-weight: 700;
+    font-weight: 900;
+    /* Bolder */
+    /* Remove white bg container from JS, styling here directly */
 }
 
-/* Custom Scrollbar for Parchment */
+/* Custom Scrollbar for Parchment - MATCHING THEME */
 .scrollable-text::-webkit-scrollbar {
-    width: 10px;
+    width: 15px;
+    /* Thicker */
 }
 
 .scrollable-text::-webkit-scrollbar-track {
-    background: rgba(62, 39, 35, 0.1);
-    border-radius: 5px;
+    background: #3e2723;
+    border-left: 2px solid #5d4037;
+    border-radius: 8px;
+    margin: 10px 0;
 }
 
 .scrollable-text::-webkit-scrollbar-thumb {
-    background: var(--color-wood);
-    border-radius: 5px;
+    background-color: var(--color-wax-red);
+    border: 2px solid #ffb300;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .close-btn {

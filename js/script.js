@@ -613,16 +613,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- INTRO POPUP LOGIC ---
+    // --- INTRO POPUP LOGIC ---
     const introLetterContent = `
-        <div class="letter" style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 5px; margin: 15px 0; font-style: italic; border: 1px dashed var(--color-ink); text-align: left;">
-            <p><strong>Mi querido hermano Barbecue,</strong></p>
-            <p>Si esta carta ha llegado a tus manos, es porque el mar aún cree en nosotros.</p> 
-            <p>Me encuentro encallado entre rocas traicioneras, pero sé que tú, forjado por tormentas y batallas, sabrás encontrarme. O al menos, eso quiero creer.</p>
-            <p>Tu sacrificio ante el Kraken no fue en vano. Logré escapar y descubrí aquello que siempre nos llamó: el Botín de los Cien Años, el tesoro más temido y codiciado de los siete mares.</p>
-            <p>He marcado el camino de regreso. Sigue el mapa que llevará mi amigo Tilín.</p>
-            <p>Esta es mi bitácora. Esta es nuestra historia.</p>
-            <p style="text-align:right;"><strong>Tu hermano, Barbaján</strong></p>
-        </div>
+        <p><strong>Mi querido hermano Barbecue,</strong></p>
+        <p>Si esta carta ha llegado a tus manos, es porque el mar aún cree en nosotros.</p> 
+        <p>Me encuentro encallado entre rocas traicioneras, pero sé que tú, forjado por tormentas y batallas, sabrás encontrarme. O al menos, eso quiero creer.</p>
+        <p>Tu sacrificio ante el Kraken no fue en vano. Logré escapar y descubrí aquello que siempre nos llamó: el Botín de los Cien Años, el tesoro más temido y codiciado de los siete mares.</p>
+        <p>He marcado el camino de regreso. Sigue el mapa que llevará mi amigo Tilín.</p>
+        <p>Esta es mi bitácora. Esta es nuestra historia.</p>
+        <p style="text-align:right;"><strong>Tu hermano, Barbaján</strong></p>
     `;
 
     const initIntroPopup = () => {
