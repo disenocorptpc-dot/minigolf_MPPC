@@ -1057,16 +1057,14 @@ body {
 
 
 
+
 .pergamino-container {
     width: 900px !important;
-    /* Wider */
     height: 700px !important;
-    /* Shorter */
     max-width: 95vw;
     max-height: 90vh;
     background-image: url('../assets/images/pergamino.webp');
     background-size: 100% 100%;
-    /* Stretch */
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
@@ -1074,11 +1072,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* REDUCED PADDING to fit text better */
-    /* Top: 100px (Title space) */
-    /* Sides: 180px (Keep away from roll) */
+    /* SIGNIFICANTLY REDUCED PADDING to stop clipping */
+    /* Top: 80px */
+    /* Sides: 120px (Reduced from 180px to allow wider text) */
     /* Bottom: 80px */
-    padding: 100px 180px 80px 180px;
+    padding: 80px 120px 80px 120px;
     box-sizing: border-box;
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
 }
