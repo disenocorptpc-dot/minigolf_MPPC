@@ -1059,9 +1059,9 @@ body {
 
 .pergamino-container {
     width: 900px !important;
-    /* Wider to avoid squashed look */
+    /* Wider */
     height: 700px !important;
-    /* Shorter to fit screen better */
+    /* Shorter */
     max-width: 95vw;
     max-height: 90vh;
     background-image: url('../assets/images/pergamino.webp');
@@ -1074,8 +1074,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* Adjusted padding significantly to open up the text area */
-    padding: 80px 150px 80px 150px;
+    /* REDUCED PADDING to fit text better */
+    /* Top: 100px (Title space) */
+    /* Sides: 180px (Keep away from roll) */
+    /* Bottom: 80px */
+    padding: 100px 180px 80px 180px;
     box-sizing: border-box;
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
 }
@@ -1088,20 +1091,22 @@ body {
     align-items: center;
     text-align: center;
     overflow: hidden;
-    justify-content: space-between;
+    /* Use flex-start instead of space-between to avoid pushing title too high or button too low if content is short */
+    justify-content: flex-start;
 }
 
 .pergamino-content h2 {
     font-family: var(--font-heading);
     color: var(--color-wax-red);
     font-size: 3rem;
-    /* Larger Title */
-    margin-bottom: 25px;
+    margin-top: 0;
+    margin-bottom: 20px;
     border-bottom: 3px solid var(--color-ink);
-    /* Thicker border */
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     width: 100%;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    /* Don't shrink title */
 }
 
 .scrollable-text {
@@ -1109,16 +1114,17 @@ body {
     width: 100%;
     overflow-y: auto;
     padding-right: 20px;
-    /* More space */
     text-align: justify;
+    /* justify text */
     font-family: var(--font-body);
-    font-size: 1.6rem;
-    /* Larger Text */
-    line-height: 1.6;
+    font-size: 1.5rem;
+    /* Slight reduce to fit more lines naturally */
+    line-height: 1.4;
+    /* Tighter line height */
     color: var(--color-ink);
     font-weight: 900;
-    /* Bolder */
-    /* Remove white bg container from JS, styling here directly */
+    margin-bottom: 20px;
+    /* Space before button */
 }
 
 /* Custom Scrollbar for Parchment - MATCHING THEME */
