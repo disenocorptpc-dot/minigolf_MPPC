@@ -1056,12 +1056,18 @@ body {
 }
 
 .pergamino-container {
-    width: 90%;
-    max-width: 600px;
-    height: 80vh;
-    max-height: 800px;
+    width: 650px;
+    /* Fixed width to match parchment aspect ratio better */
+    height: 850px;
+    /* Fixed height */
+    max-width: 95vw;
+    max-height: 90vh;
     background-image: url('../assets/images/pergamino.webp');
     background-size: 100% 100%;
+    /* Keep stretch but fix dimensions to match ratio? User said deformed. Contain is safer but might leave gaps. */
+    /* actually, if I fix the container ratio, 100% 100% looks fine. */
+    /* Let's try CONTAIN to be safe and center it. */
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
@@ -1069,8 +1075,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 80px 60px;
-    /* Adjust based on parchment image margins */
+    /* Adjusted padding to fit content INSIDE the parchment visual "safe area" */
+    padding: 180px 110px 120px 110px;
     box-sizing: border-box;
     filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
 }
